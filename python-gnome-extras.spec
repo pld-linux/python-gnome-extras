@@ -1,17 +1,20 @@
 %define		module			gnome-python-extras
-%define		pygtk_req		2:2.5.3
-%define		gnome_python_req	2.9.4
+%define		pygtk_req		2:2.6.0
+%define		gnome_python_req	2.10.0
+
+# Conditional builds:
+%bcond_without totem # disable totem support
+
 Summary:	GNOME bindings for Python
 Summary(pl):	Wi±zania Pythona do bibliotek GNOME
 Name:		python-gnome-extras
-Version:	2.9.4
-Release:	2
+Version:	2.10.0
+Release:	1
 License:	GPL v2/LGPL v2.1 (see COPYING)
 Group:		Libraries/Python
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-python-extras/2.9/%{module}-%{version}.tar.bz2
-# Source0-md5:	9922944ed9f798bcd61265aa883ae431
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-python-extras/2.10/%{module}-%{version}.tar.bz2
+# Source0-md5:	25a3860f9497eb133d96c06dda729982
 Patch0:		%{name}-MOZILLA_HOME.patch
-Patch1:		%{name}-wnck.patch
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	gnome-panel-devel >= 2.9.91
@@ -32,7 +35,7 @@ BuildRequires:	pkgconfig
 BuildRequires:	python-devel >= 1:2.3.2
 BuildRequires:	python-gnome-devel >= %{gnome_python_req}
 BuildRequires:	python-pygtk-devel >= %{pygtk_req}
-BuildRequires:	totem-devel >= 0.101
+%{?with_totem:BuildRequires:	totem-devel >= 0.101}
 %pyrequires_eq	python-modules
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -208,7 +211,6 @@ Wi±zania Pythona do biblioteki libwnck.
 %prep
 %setup -q -n %{module}-%{version}
 %patch0 -p1
-%patch1 -p1
 
 %build
 %{__libtoolize}
@@ -279,11 +281,13 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{py_sitedir}/gtk-2.0/nautilusburn.so
 
+%if %{with totem}
 %files totem
 %defattr(644,root,root,755)
 %dir %{py_sitedir}/gtk-2.0/totem
 %attr(755,root,root) %{py_sitedir}/gtk-2.0/totem/*.so
 %{py_sitedir}/gtk-2.0/totem/__init__.py?
+%endif
 
 %files libwnck
 %defattr(644,root,root,755)
