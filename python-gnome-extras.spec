@@ -4,12 +4,12 @@
 Summary:	GNOME bindings for Python
 Summary(pl):	Wi±zania Pythona do bibliotek GNOME
 Name:		python-gnome-extras
-Version:	2.9.3
+Version:	2.9.4
 Release:	1
-License:	GPL
+License:	GPL v2/LGPL v2.1 (see COPYING)
 Group:		Libraries/Python
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-python-extras/2.9/%{module}-%{version}.tar.bz2
-# Source0-md5:	fe65f1b8c71a5dc24c378631b095f6b3
+# Source0-md5:	9922944ed9f798bcd61265aa883ae431
 Patch0:		%{name}-MOZILLA_HOME.patch
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
@@ -27,6 +27,7 @@ BuildRequires:	libtool
 BuildRequires:	libwnck-devel >= 2.9.91
 BuildRequires:	mozilla-devel
 BuildRequires:	nautilus-cd-burner-devel >= 2.9.6
+BuildRequires:	pkgconfig
 BuildRequires:	python-devel >= 1:2.3.2
 BuildRequires:	python-gnome-devel >= %{gnome_python_req}
 BuildRequires:	python-pygtk-devel >= %{pygtk_req}
@@ -228,7 +229,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS README
+%doc AUTHORS COPYING ChangeLog NEWS
 
 %files devel
 %defattr(644,root,root,755)
