@@ -8,29 +8,29 @@
 Summary:	GNOME bindings for Python
 Summary(pl):	Wi±zania Pythona do bibliotek GNOME
 Name:		python-gnome-extras
-Version:	2.10.0
+Version:	2.10.1
 Release:	1
 License:	GPL v2/LGPL v2.1 (see COPYING)
 Group:		Libraries/Python
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-python-extras/2.10/%{module}-%{version}.tar.bz2
-# Source0-md5:	25a3860f9497eb133d96c06dda729982
+Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-python-extras/2.10/%{module}-%{version}.tar.bz2
+# Source0-md5:	4258c783e0d8fbf18e9b4b33693384e7
 Patch0:		%{name}-MOZILLA_HOME.patch
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
-BuildRequires:	gnome-panel-devel >= 2.9.91
-BuildRequires:	gnome-vfs2-devel >= 2.9.91
-BuildRequires:	gtk+2-devel >= 2:2.6.2
-BuildRequires:	gtksourceview-devel >= 1.1.92
+BuildRequires:	gnome-panel-devel >= 2.10.1
+BuildRequires:	gnome-vfs2-devel >= 2.10.1
+BuildRequires:	gtk+2-devel >= 2:2.6.4
+BuildRequires:	gtksourceview-devel >= 1.2.0
 BuildRequires:	gtkspell-devel >= 2.0.8
-BuildRequires:	libgnomeprintui-devel >= 2.8.2
-BuildRequires:	libgnomeui-devel >= 2.9.1
-BuildRequires:	libgtkhtml-devel >= 2.6.2
-BuildRequires:	libgtop-devel >= 2.9.91
-BuildRequires:	librsvg-devel >= 2.9.5
+BuildRequires:	libgnomeprintui-devel >= 2.10.2
+BuildRequires:	libgnomeui-devel >= 2.10.0-2
+BuildRequires:	libgtkhtml-devel >= 2.6.3
+BuildRequires:	libgtop-devel >= 2.10.1
+BuildRequires:	librsvg-devel >= 1:2.9.5-2
 BuildRequires:	libtool
-BuildRequires:	libwnck-devel >= 2.9.92.1
+BuildRequires:	libwnck-devel >= 2.10.0
 BuildRequires:	mozilla-devel
-BuildRequires:	nautilus-cd-burner-devel >= 2.9.6
+BuildRequires:	nautilus-cd-burner-devel >= 2.10.0-2
 BuildRequires:	pkgconfig
 BuildRequires:	python-devel >= 1:2.3.2
 BuildRequires:	python-gnome-devel >= %{gnome_python_req}
