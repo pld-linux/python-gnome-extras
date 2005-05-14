@@ -9,7 +9,7 @@ Summary:	GNOME bindings for Python
 Summary(pl):	Wi±zania Pythona do bibliotek GNOME
 Name:		python-gnome-extras
 Version:	2.10.1
-Release:	2
+Release:	3
 License:	GPL v2/LGPL v2.1 (see COPYING)
 Group:		Libraries/Python
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-python-extras/2.10/%{module}-%{version}.tar.bz2
@@ -32,6 +32,7 @@ BuildRequires:	libwnck-devel >= 2.10.0
 BuildRequires:	mozilla-devel
 BuildRequires:	nautilus-cd-burner-devel >= 2.10.0-2
 BuildRequires:	pkgconfig
+BuildRequires:	popt-devel
 BuildRequires:	python-devel >= 1:2.3.2
 BuildRequires:	python-gnome-devel >= %{gnome_python_req}
 BuildRequires:	python-pygtk-devel >= %{pygtk_req}
