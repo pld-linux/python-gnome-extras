@@ -9,7 +9,7 @@ Summary:	GNOME bindings for Python
 Summary(pl):	Wi±zania Pythona do bibliotek GNOME
 Name:		python-gnome-extras
 Version:	2.10.1
-Release:	1
+Release:	2
 License:	GPL v2/LGPL v2.1 (see COPYING)
 Group:		Libraries/Python
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-python-extras/2.10/%{module}-%{version}.tar.bz2
@@ -115,8 +115,8 @@ Summary:	GtkHtml bindings for Python
 Summary(pl):	Wi±zania Pythona do biblioteki GtkHtml
 Group:		Libraries/Python
 Requires:	python-pygtk-gtk >= %{pygtk_req}
-Obsoletes:	python-gnome-gtkhtml
-Provides:	python-gnome-gtkhtml
+Obsoletes:	python-gnome-gtkhtml < 2.9.0
+Provides:	python-gnome-gtkhtml = %{version}-%{release}
 
 %description gtkhtml
 GtkHtml bindings for Python.
