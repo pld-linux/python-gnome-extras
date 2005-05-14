@@ -9,7 +9,7 @@ Summary:	GNOME bindings for Python
 Summary(pl):	Wi±zania Pythona do bibliotek GNOME
 Name:		python-gnome-extras
 Version:	2.10.1
-Release:	3
+Release:	4
 License:	GPL v2/LGPL v2.1 (see COPYING)
 Group:		Libraries/Python
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-python-extras/2.10/%{module}-%{version}.tar.bz2
@@ -22,6 +22,7 @@ BuildRequires:	gnome-vfs2-devel >= 2.10.1
 BuildRequires:	gtk+2-devel >= 2:2.6.4
 BuildRequires:	gtksourceview-devel >= 1.2.0
 BuildRequires:	gtkspell-devel >= 2.0.8
+BuildRequires:	hal-devel
 BuildRequires:	libgnomeprintui-devel >= 2.10.2
 BuildRequires:	libgnomeui-devel >= 2.10.0-2
 BuildRequires:	libgtkhtml-devel >= 2.6.3
