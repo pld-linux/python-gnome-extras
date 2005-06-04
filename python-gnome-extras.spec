@@ -3,17 +3,18 @@
 %define		gnome_python_req	2.10.0
 
 # Conditional builds:
-%bcond_without totem # disable totem support
+%bcond_without	totem		# disable totem support
+%bcond_with	mozilla_firefox	# build with mozilla-firefox-devel
 
 Summary:	GNOME bindings for Python
 Summary(pl):	Wi±zania Pythona do bibliotek GNOME
 Name:		python-gnome-extras
-Version:	2.10.1
-Release:	4
+Version:	2.10.2
+Release:	1
 License:	GPL v2/LGPL v2.1 (see COPYING)
 Group:		Libraries/Python
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-python-extras/2.10/%{module}-%{version}.tar.bz2
-# Source0-md5:	4258c783e0d8fbf18e9b4b33693384e7
+# Source0-md5:	0b7a276032646582e6e266beaef7a090
 Patch0:		%{name}-MOZILLA_HOME.patch
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
@@ -30,7 +31,11 @@ BuildRequires:	libgtop-devel >= 2.10.1
 BuildRequires:	librsvg-devel >= 1:2.9.5-2
 BuildRequires:	libtool
 BuildRequires:	libwnck-devel >= 2.10.0
+%if %{with mozilla_firefox}
+BuildRequires:	mozilla-firefox-devel
+%else
 BuildRequires:	mozilla-devel
+%endif
 BuildRequires:	nautilus-cd-burner-devel >= 2.10.0-2
 BuildRequires:	pkgconfig
 BuildRequires:	popt-devel
