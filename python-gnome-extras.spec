@@ -9,21 +9,26 @@
 Summary:	GNOME bindings for Python
 Summary(pl):	Wi您ania Pythona do bibliotek GNOME
 Name:		python-gnome-extras
-Version:	2.10.2
-Release:	1
+Version:	2.11.4
+Release:	0.1
 License:	GPL v2/LGPL v2.1 (see COPYING)
 Group:		Libraries/Python
-Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-python-extras/2.10/%{module}-%{version}.tar.bz2
-# Source0-md5:	0b7a276032646582e6e266beaef7a090
+Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-python-extras/2.11/%{module}-%{version}.tar.bz2
+# Source0-md5:	5d48e98dd6ce23ac5b28db1bb6d76c12
 Patch0:		%{name}-MOZILLA_HOME.patch
+BuildRequires:	GConf2-devel >= 2.10.0
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
+BuildRequires:	gnome-media-devel >= 2.10.0
 BuildRequires:	gnome-panel-devel >= 2.10.1
 BuildRequires:	gnome-vfs2-devel >= 2.10.1
 BuildRequires:	gtk+2-devel >= 2:2.6.4
 BuildRequires:	gtksourceview-devel >= 1.2.0
 BuildRequires:	gtkspell-devel >= 2.0.8
 BuildRequires:	hal-devel
+BuildRequires:	libgda-devel >= 1.2.0
+BuildRequires:	libgksu-devel >= 1.2.5
+BuildRequires:	libgksuui-devel >= 1.0.3
 BuildRequires:	libgnomeprintui-devel >= 2.10.2
 BuildRequires:	libgnomeui-devel >= 2.10.0-2
 BuildRequires:	libgtkhtml-devel >= 2.6.3
@@ -36,7 +41,7 @@ BuildRequires:	mozilla-firefox-devel
 %else
 BuildRequires:	mozilla-devel
 %endif
-BuildRequires:	nautilus-cd-burner-devel >= 2.10.0-2
+BuildRequires:	nautilus-cd-burner-devel >= 2.11.1
 BuildRequires:	pkgconfig
 BuildRequires:	popt-devel
 BuildRequires:	python-devel >= 1:2.3.2
@@ -215,6 +220,42 @@ Libwnck bindings for Python.
 %description libwnck -l pl
 Wi您ania Pythona do biblioteki libwnck.
 
+%package gda
+Summary:	Libgda bindings for Python
+Summary(pl):	Wi您ania Pythona do biblioteki libgda
+Group:		Libraries/Python
+Requires:	python-pygtk-gtk >= %{pygtk_req}
+
+%description gda
+Libgda bindings for Python.
+
+%description gda -l pl
+Wi您ania Pythona do biblioteki libgda.
+
+%package libgksu
+Summary:	Libgksu and libgksuui bindings for Python
+Summary(pl):	Wi您ania Pythona do bibliotek libgksu i libgksuui
+Group:		Libraries/Python
+Requires:	python-pygtk-gtk >= %{pygtk_req}
+
+%description libgksu
+Libgksu and libgksuui bindings for Python.
+
+%description libgksu -l pl
+Wi您ania Pythona do bibliotek libgksu i libgksuui.
+
+%package mediaprofiles
+Summary:	gnome-media-profiles bindings for Python
+Summary(pl):	Wi您ania Pythona do gnome-media-profiles
+Group:		Libraries/Python
+Requires:	python-pygtk-gtk >= %{pygtk_req}
+
+%description mediaprofiles
+gnome-media-profiles bindings for Python.
+
+%description mediaprofiles -l pl
+Wi您ania Pythona do gnome-media-profiles.
+
 %prep
 %setup -q -n %{module}-%{version}
 %patch0 -p1
@@ -263,6 +304,20 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{py_sitedir}/gtk-2.0/gnomeprint
 %attr(755,root,root) %{py_sitedir}/gtk-2.0/gnomeprint/*.so
 %{py_sitedir}/gtk-2.0/gnomeprint/*.py?
+
+%files libgksu
+%defattr(644,root,root,755)
+%dir %{py_sitedir}/gtk-2.0/gksu
+%attr(755,root,root) %{py_sitedir}/gtk-2.0/gksu/*.so
+%{py_sitedir}/gtk-2.0/gksu/*.py?
+
+%files mediaprofiles
+%defattr(644,root,root,755)
+%attr(755,root,root) %{py_sitedir}/gtk-2.0/mediaprofiles.so
+
+%files gda
+%defattr(644,root,root,755)
+%attr(755,root,root) %{py_sitedir}/gtk-2.0/gda.so
 
 %files gtkhtml
 %defattr(644,root,root,755)
