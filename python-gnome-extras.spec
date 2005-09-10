@@ -9,12 +9,12 @@
 Summary:	GNOME bindings for Python
 Summary(pl):	Wi±zania Pythona do bibliotek GNOME
 Name:		python-gnome-extras
-Version:	2.11.4
+Version:	2.12.0
 Release:	1
 License:	GPL v2/LGPL v2.1 (see COPYING)
 Group:		Libraries/Python
-Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-python-extras/2.11/%{module}-%{version}.tar.bz2
-# Source0-md5:	5d48e98dd6ce23ac5b28db1bb6d76c12
+Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-python-extras/2.12/%{module}-%{version}.tar.bz2
+# Source0-md5:	103efa8fbd8eed5c9dd4796dbe6393de
 Patch0:		%{name}-MOZILLA_HOME.patch
 BuildRequires:	GConf2-devel >= 2.10.0
 BuildRequires:	autoconf >= 2.52
