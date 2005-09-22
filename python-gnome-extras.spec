@@ -161,6 +161,7 @@ Wi±zania Pythona do biblioteki GtkHtml.
 Summary:	Gtksourceview bindings for Python
 Summary(pl):	Wi±zania Pythona do biblioteki gtksourceview
 Group:		Libraries/Python
+Requires:	%{name}-print = %{version}-%{release}
 Requires:	python-pygtk-gtk >= %{pygtk_req}
 
 %description gtksourceview
