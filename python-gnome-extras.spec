@@ -336,7 +336,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files gda-devel
 %defattr(644,root,root,755)
-%{_includedir}/pygda-2.0/*.h
+%{_includedir}/pygda-2.0
 
 %files gdl
 %defattr(644,root,root,755)
