@@ -10,12 +10,13 @@ Summary:	GNOME bindings for Python
 Summary(pl):	Wi±zania Pythona do bibliotek GNOME
 Name:		python-gnome-extras
 Version:	2.12.0
-Release:	3
+Release:	4
 License:	GPL v2/LGPL v2.1 (see COPYING)
 Group:		Libraries/Python
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-python-extras/2.12/%{module}-%{version}.tar.bz2
 # Source0-md5:	103efa8fbd8eed5c9dd4796dbe6393de
 Patch0:		%{name}-MOZILLA_HOME.patch
+Patch1:		%{name}-libgda20.patch
 BuildRequires:	GConf2-devel >= 2.10.0
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
@@ -26,7 +27,7 @@ BuildRequires:	gtk+2-devel >= 2:2.6.4
 BuildRequires:	gtksourceview-devel >= 1.2.0
 BuildRequires:	gtkspell-devel >= 2.0.8
 BuildRequires:	hal-devel
-BuildRequires:	libgda-devel >= 1.2.0
+BuildRequires:	libgda-devel >= 1.9.100-2
 BuildRequires:	gdl-devel >= 0.4.0
 BuildRequires:	libgksu-devel >= 1.2.5
 BuildRequires:	libgksuui-devel >= 1.0.3
@@ -122,7 +123,7 @@ Wi±zania Pythona do biblioteki libgda.
 Summary:	Header files for pygda library
 Summary(pl):	Pliki nag³ówkowe biblioteki pygda
 Group:		Libraries/Python
-Requires:	libgda-devel >= 1.2.0
+Requires:	libgda-devel >= 1.9.100-2
 
 %description gda-devel
 Header files for pygda library.
@@ -286,6 +287,7 @@ Wi±zania Pythona do biblioteki totem.
 %prep
 %setup -q -n %{module}-%{version}
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__libtoolize}
@@ -334,7 +336,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files gda-devel
 %defattr(644,root,root,755)
-%{_includedir}/pygda-1.2
+%{_includedir}/pygda-2.0/*.h
 
 %files gdl
 %defattr(644,root,root,755)
