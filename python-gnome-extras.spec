@@ -14,7 +14,7 @@ Release:	1
 License:	GPL v2/LGPL v2.1 (see COPYING)
 Group:		Libraries/Python
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-python-extras/2.12/%{module}-%{version}.tar.bz2
-# Source0-md5:	103efa8fbd8eed5c9dd4796dbe6393de
+# Source0-md5:	62a3d8bb5bd5c1696c7200c001ea34f2
 Patch0:		%{name}-MOZILLA_HOME.patch
 Patch1:		%{name}-libgda20.patch
 BuildRequires:	GConf2-devel >= 2.10.0
