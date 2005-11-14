@@ -1,6 +1,6 @@
-diff -aurN gnome-python-extras-2.12.0.orig/configure.ac gnome-python-extras-2.12.0/configure.ac
---- gnome-python-extras-2.12.0.orig/configure.ac	2005-09-10 19:39:20.000000000 +0200
-+++ gnome-python-extras-2.12.0/configure.ac	2005-10-25 13:36:52.000000000 +0200
+diff -urN gnome-python-extras-2.12.1.orig/configure.ac gnome-python-extras-2.12.1/configure.ac
+--- gnome-python-extras-2.12.1.orig/configure.ac	2005-11-14 19:26:47.399433872 +0100
++++ gnome-python-extras-2.12.1/configure.ac	2005-11-14 19:35:14.566332784 +0100
 @@ -25,7 +25,7 @@
  m4_define(firefox_required_version,           1.0)
  m4_define(libgtop_required_version,           2.9.5)
@@ -28,9 +28,9 @@ diff -aurN gnome-python-extras-2.12.0.orig/configure.ac gnome-python-extras-2.12
    gksu/Makefile
    mediaprofiles/Makefile
    gnome-python-extras-2.0.pc
-diff -aurN gnome-python-extras-2.12.0.orig/gda/gda.defs gnome-python-extras-2.12.0/gda/gda.defs
---- gnome-python-extras-2.12.0.orig/gda/gda.defs	2005-04-14 22:34:55.000000000 +0200
-+++ gnome-python-extras-2.12.0/gda/gda.defs	2005-10-23 17:13:19.000000000 +0200
+diff -urN gnome-python-extras-2.12.1.orig/gda/gda.defs gnome-python-extras-2.12.1/gda/gda.defs
+--- gnome-python-extras-2.12.1.orig/gda/gda.defs	2005-11-14 19:26:45.837671296 +0100
++++ gnome-python-extras-2.12.1/gda/gda.defs	2005-11-14 19:33:31.898940600 +0100
 @@ -1,5 +1,12 @@
  ;; -*- scheme -*-
  ; object definitions ...
@@ -6927,9 +6927,9 @@ diff -aurN gnome-python-extras-2.12.0.orig/gda/gda.defs gnome-python-extras-2.12
  
  (define-function gda_init
    (c-name "gda_init")
-diff -aurN gnome-python-extras-2.12.0.orig/gda/gda.override gnome-python-extras-2.12.0/gda/gda.override
---- gnome-python-extras-2.12.0.orig/gda/gda.override	2005-04-14 18:37:40.000000000 +0200
-+++ gnome-python-extras-2.12.0/gda/gda.override	2005-10-23 17:13:19.000000000 +0200
+diff -urN gnome-python-extras-2.12.1.orig/gda/gda.override gnome-python-extras-2.12.1/gda/gda.override
+--- gnome-python-extras-2.12.1.orig/gda/gda.override	2005-11-14 19:26:45.903661264 +0100
++++ gnome-python-extras-2.12.1/gda/gda.override	2005-11-14 19:33:31.912938472 +0100
 @@ -3,34 +3,11 @@
  #include <Python.h>
  #include <pygobject.h>
@@ -6981,9 +6981,9 @@ diff -aurN gnome-python-extras-2.12.0.orig/gda/gda.override gnome-python-extras-
  
  	for (tmp = list; tmp != NULL; tmp = tmp->next) {
  		PyObject* obj = pygobject_new (G_OBJECT (tmp->data));
-diff -aurN gnome-python-extras-2.12.0.orig/gda/Makefile.am gnome-python-extras-2.12.0/gda/Makefile.am
---- gnome-python-extras-2.12.0.orig/gda/Makefile.am	2005-04-15 18:59:37.000000000 +0200
-+++ gnome-python-extras-2.12.0/gda/Makefile.am	2005-10-23 17:13:19.000000000 +0200
+diff -urN gnome-python-extras-2.12.1.orig/gda/Makefile.am gnome-python-extras-2.12.1/gda/Makefile.am
+--- gnome-python-extras-2.12.1.orig/gda/Makefile.am	2005-11-14 19:26:45.895662480 +0100
++++ gnome-python-extras-2.12.1/gda/Makefile.am	2005-11-14 19:33:31.952932392 +0100
 @@ -6,13 +6,13 @@
  EXTRA_DIST = $(defs_DATA)
  
@@ -7000,9 +7000,9 @@ diff -aurN gnome-python-extras-2.12.0.orig/gda/Makefile.am gnome-python-extras-2
  
  
  
-diff -aurN gnome-python-extras-2.12.0.orig/gda/pygda-1.2.pc.in gnome-python-extras-2.12.0/gda/pygda-1.2.pc.in
---- gnome-python-extras-2.12.0.orig/gda/pygda-1.2.pc.in	2005-04-15 16:15:10.000000000 +0200
-+++ gnome-python-extras-2.12.0/gda/pygda-1.2.pc.in	1970-01-01 01:00:00.000000000 +0100
+diff -urN gnome-python-extras-2.12.1.orig/gda/pygda-1.2.pc.in gnome-python-extras-2.12.1/gda/pygda-1.2.pc.in
+--- gnome-python-extras-2.12.1.orig/gda/pygda-1.2.pc.in	2005-11-14 19:26:45.881664608 +0100
++++ gnome-python-extras-2.12.1/gda/pygda-1.2.pc.in	1970-01-01 01:00:00.000000000 +0100
 @@ -1,17 +0,0 @@
 -prefix=@prefix@
 -exec_prefix=@exec_prefix@
@@ -7021,9 +7021,9 @@ diff -aurN gnome-python-extras-2.12.0.orig/gda/pygda-1.2.pc.in gnome-python-extr
 -Requires: pygobject-2.0 libgda
 -Version: @VERSION@
 -Cflags: -I${pygtkincludedir}
-diff -aurN gnome-python-extras-2.12.0.orig/gda/pygda-2.0.pc.in gnome-python-extras-2.12.0/gda/pygda-2.0.pc.in
---- gnome-python-extras-2.12.0.orig/gda/pygda-2.0.pc.in	1970-01-01 01:00:00.000000000 +0100
-+++ gnome-python-extras-2.12.0/gda/pygda-2.0.pc.in	2005-10-23 17:13:19.000000000 +0200
+diff -urN gnome-python-extras-2.12.1.orig/gda/pygda-2.0.pc.in gnome-python-extras-2.12.1/gda/pygda-2.0.pc.in
+--- gnome-python-extras-2.12.1.orig/gda/pygda-2.0.pc.in	1970-01-01 01:00:00.000000000 +0100
++++ gnome-python-extras-2.12.1/gda/pygda-2.0.pc.in	2005-11-14 19:33:32.036919624 +0100
 @@ -0,0 +1,17 @@
 +prefix=@prefix@
 +exec_prefix=@exec_prefix@
@@ -7042,49 +7042,10 @@ diff -aurN gnome-python-extras-2.12.0.orig/gda/pygda-2.0.pc.in gnome-python-extr
 +Requires: pygobject-2.0 libgda-2.0
 +Version: @VERSION@
 +Cflags: -I${pygtkincludedir}
-diff -aurN gnome-python-extras-2.12.0.orig/gda/pygdavalue_conversions.c gnome-python-extras-2.12.0/gda/pygdavalue_conversions.c
---- gnome-python-extras-2.12.0.orig/gda/pygdavalue_conversions.c	2005-04-17 21:51:06.000000000 +0200
-+++ gnome-python-extras-2.12.0/gda/pygdavalue_conversions.c	2005-10-23 17:13:19.000000000 +0200
-@@ -1,5 +1,9 @@
-+#include <Python.h>
-+#if PY_VERSION_HEX >= 0x02040000
-+# include <datetime.h> /* From Python */
-+#endif
- #include "pygdavalue_conversions.h"
--#include <datetime.h> /* From Python */
-+
- 
- /**
-  * pygda_value_from_pyobject:
-@@ -30,6 +34,8 @@
-       gda_value_set_double (boxed, PyFloat_AsDouble (input));
-     } else if (PyBool_Check (input)) {
-       gda_value_set_boolean (boxed, (input == Py_True));
-+
-+#if PY_VERSION_HEX >= 0x02040000 //These functions were introduced in python 2.4.
-     } else if (PyDateTime_Check (input)) {
-          GdaTimestamp gda;
-          gda.year = PyDateTime_GET_YEAR(input);
-@@ -53,6 +59,8 @@
-          gda.second = PyDateTime_TIME_GET_SECOND(input);
-          gda.timezone = 0;
-          gda_value_set_time (boxed, &gda);
-+#endif //PY_VERSION_HEX
-+
-     } else {
-       g_warning("Unhandled python type.");
-       return -1; //failed.
-@@ -79,7 +87,9 @@
- 
-     value_type = gda_value_get_type ((GdaValue*)boxed);
- 
-+#if PY_VERSION_HEX >= 0x02040000
-     PyDateTime_IMPORT; /* So we can use PyDate*() functions. */
-+#endif
- 
-     if (value_type == GDA_VALUE_TYPE_NULL) {
-       Py_INCREF (Py_None);
-@@ -89,18 +99,19 @@
+diff -urN gnome-python-extras-2.12.1.orig/gda/pygdavalue_conversions.c gnome-python-extras-2.12.1/gda/pygdavalue_conversions.c
+--- gnome-python-extras-2.12.1.orig/gda/pygdavalue_conversions.c	2005-11-14 19:26:45.870666280 +0100
++++ gnome-python-extras-2.12.1/gda/pygdavalue_conversions.c	2005-11-14 19:48:41.115718640 +0100
+@@ -97,9 +97,8 @@
      } else if (value_type == GDA_VALUE_TYPE_BIGUINT) {
          ret = PyLong_FromLong (gda_value_get_biguint ((GdaValue*)boxed));
      } else if (value_type == GDA_VALUE_TYPE_BINARY) {
@@ -7096,37 +7057,3 @@ diff -aurN gnome-python-extras-2.12.0.orig/gda/pygdavalue_conversions.c gnome-py
      } else if (value_type == GDA_VALUE_TYPE_BLOB) {
          /* const GdaBlob* val = gda_value_get_blob ((GdaValue*)boxed); */
          ret = 0; /* TODO: This thing has a whole read/write API. */
-     } else if (value_type == GDA_VALUE_TYPE_BOOLEAN) {
-         ret = PyBool_FromLong (gda_value_get_boolean ((GdaValue*)boxed));
-+#if PY_VERSION_HEX >= 0x02040000
-     } else if (value_type == GDA_VALUE_TYPE_DATE) {
-         const GdaDate* val = gda_value_get_date ((GdaValue*)boxed);
-         if(val)
-           ret = PyDate_FromDate(val->year, val->month, val->day);
-+#endif
-     } else if (value_type == GDA_VALUE_TYPE_DOUBLE) {
-         ret = PyFloat_FromDouble (gda_value_get_double ((GdaValue*)boxed));
-     } else if (value_type == GDA_VALUE_TYPE_GEOMETRIC_POINT) {
-@@ -115,7 +126,7 @@
-         const GdaNumeric* val = gda_value_get_numeric ((GdaValue*)boxed);
-         const gchar* number_as_text = val->number; /* Formatted according to the C locale, probably. */
-         /* This would need a string _object_: ret = PyFloat_FromString(number_as_text, 0); */
--        ret = PyFloat_FromDouble (PyOS_ascii_strtod (number_as_text, 0));
-+        ret = PyFloat_FromDouble (g_ascii_strtod (number_as_text, NULL));
-     } else if (value_type == GDA_VALUE_TYPE_SINGLE) {
-         ret = PyFloat_FromDouble (gda_value_get_single ((GdaValue*)boxed));
-     } else if (value_type == GDA_VALUE_TYPE_SMALLINT) {
-@@ -124,11 +135,13 @@
-         const gchar* val = gda_value_get_string ((GdaValue*)boxed);
-         ret = PyString_FromString (val);
-     } else if (value_type == GDA_VALUE_TYPE_TIME) {
-+#if PY_VERSION_HEX >= 0x02040000
-         const GdaTime* val = gda_value_get_time ((GdaValue*)boxed);
-         ret = PyTime_FromTime(val->hour, val->minute, val->second, 0); /* TODO: Should we ignore GdaDate::timezone ? */
-     } else if (value_type == GDA_VALUE_TYPE_TIMESTAMP) {
-         const GdaTimestamp* val = gda_value_get_timestamp ((GdaValue*)boxed);
-         ret = PyDateTime_FromDateAndTime(val->year, val->month, val->day, val->hour, val->minute, val->second, 0); /* TODO: Should we ignore GdaTimestamp::timezone ? */
-+#endif
-     } else if (value_type == GDA_VALUE_TYPE_TINYINT) {
-         ret = PyInt_FromLong (gda_value_get_tinyint ((GdaValue*)boxed));
-     } else if (value_type == GDA_VALUE_TYPE_TINYUINT) {
