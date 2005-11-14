@@ -9,8 +9,8 @@
 Summary:	GNOME bindings for Python
 Summary(pl):	Wi±zania Pythona do bibliotek GNOME
 Name:		python-gnome-extras
-Version:	2.12.0
-Release:	4
+Version:	2.12.1
+Release:	1
 License:	GPL v2/LGPL v2.1 (see COPYING)
 Group:		Libraries/Python
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-python-extras/2.12/%{module}-%{version}.tar.bz2
@@ -78,6 +78,18 @@ Development files for GNOME bindings for Python.
 
 %description devel -l pl
 Pliki programistyczne wi±zañ Pythona do GNOME.
+
+%package examples
+Summary:        Example programs for python-gnome-extras
+Summary(pl):    Przyk³adowe programy do python-gnome-extras
+Group:          Libraries/Python
+Requires:	%{name}-devel = %{version}-%{release}
+
+%description examples
+This package contains example programs for python-gnome-extras.
+
+%description -l pl examples
+Ten pakiet zawiera przyk³adowe programy dla python-gnome-extras.
 
 %package applet
 Summary:	GNOME Applet bindings for Python
@@ -301,9 +313,13 @@ Wi±zania Pythona do biblioteki totem.
 %install
 rm -rf $RPM_BUILD_ROOT
 
+install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	HTML_DIR=%{_gtkdocdir}
+
+cp -a examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 rm -f $RPM_BUILD_ROOT%{py_sitedir}/gtk-2.0/{*.la,*/{*.la,*.py}}
 
@@ -318,6 +334,10 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{pydefsdir}/*
 %{_pkgconfigdir}/*.pc
+
+%files examples
+%defattr(644,root,root,755)
+%{_examplesdir}/%{name}-%{version}
 
 %files applet
 %defattr(644,root,root,755)
