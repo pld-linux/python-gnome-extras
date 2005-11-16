@@ -1,6 +1,6 @@
 %define		module			gnome-python-extras
 %define		pygtk_req		2:2.8.0
-%define		gnome_python_req	2.12.0
+%define		gnome_python_req	2.12.1-3
 
 # Conditional builds:
 %bcond_without	totem		# disable totem support
@@ -10,7 +10,7 @@ Summary:	GNOME bindings for Python
 Summary(pl):	Wi您ania Pythona do bibliotek GNOME
 Name:		python-gnome-extras
 Version:	2.12.1
-Release:	1
+Release:	2
 License:	GPL v2/LGPL v2.1 (see COPYING)
 Group:		Libraries/Python
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-python-extras/2.12/%{module}-%{version}.tar.bz2
@@ -96,8 +96,8 @@ Summary:	GNOME Applet bindings for Python
 Summary(pl):	Wi您ania Pythona do biblioteki GNOME Applet
 Group:		Libraries/Python
 Requires:	%{name} = %{version}-%{release}
-Requires:	python-pygtk-gtk >= %{pygtk_req}
-Requires:	python-gnome >= %{gnome_python_req}
+Requires:	python-gnome-ui >= %{gnome_python_req}
+Requires:	python-pygtk-glade >= %{pygtk_req}
 Obsoletes:	python-gnome-applet
 Provides:	python-gnome-applet
 
@@ -111,7 +111,7 @@ Wi您ania Pythona do biblioteki GNOME Applet.
 Summary:	egg.trayicon bindings for Python
 Summary(pl):	Wi您ania Pythona do egg.trayicon
 Group:		Libraries/Python
-Requires:	python-pygtk-gtk >= %{pygtk_req}
+Requires:	python-gnome-ui >= %{gnome_python_req}
 
 %description egg
 egg.trayicon bindings for Python.
@@ -147,7 +147,8 @@ Pliki nag堯wkowe biblioteki pygda.
 Summary:	GDL bindings for Python
 Summary(pl):	Wi您ania Pythona do biblioteki GDL
 Group:		Libraries/Python
-Requires:	python-pygtk-gtk >= %{pygtk_req}
+Requires:	python-gnome-ui >= %{gnome_python_req}
+Requires:	python-pygtk-glade >= %{pygtk_req}
 Requires:	gdl >= 0.4.0
 
 %description gdl
@@ -160,7 +161,7 @@ Wi您ania Pythona do biblioteki GDL.
 Summary:	GtkHtml bindings for Python
 Summary(pl):	Wi您ania Pythona do biblioteki GtkHtml
 Group:		Libraries/Python
-Requires:	python-pygtk-gtk >= %{pygtk_req}
+Requires:	python-gnome-canvas >= %{gnome_python_req}
 Obsoletes:	python-gnome-gtkhtml < 2.9.0
 Provides:	python-gnome-gtkhtml = %{version}-%{release}
 
@@ -175,7 +176,6 @@ Summary:	Gtksourceview bindings for Python
 Summary(pl):	Wi您ania Pythona do biblioteki gtksourceview
 Group:		Libraries/Python
 Requires:	%{name}-print = %{version}-%{release}
-Requires:	python-pygtk-gtk >= %{pygtk_req}
 
 %description gtksourceview
 Gtksourceview bindings for Python.
@@ -211,7 +211,7 @@ Wi您ania Pythona do bibliotek libgksu i libgksuui.
 Summary:	Libgtop bindings for Python
 Summary(pl):	Wi您ania Pythona do biblioteki libgtop
 Group:		Libraries/Python
-Requires:	python-pygtk-gtk >= %{pygtk_req}
+Requires:	python-pygtk-gobject >= %{pygtk_req}
 
 %description libgtop
 Libgtop bindings for Python.
@@ -235,7 +235,8 @@ Wi您ania Pythona do biblioteki libwnck.
 Summary:	gnome-media-profiles bindings for Python
 Summary(pl):	Wi您ania Pythona do gnome-media-profiles
 Group:		Libraries/Python
-Requires:	python-pygtk-gtk >= %{pygtk_req}
+Requires:	python-gnome-ui >= %{gnome_python_req}
+Requires:	python-pygtk-glade >= %{pygtk_req}
 
 %description mediaprofiles
 gnome-media-profiles bindings for Python.
@@ -272,7 +273,7 @@ Summary:	GNOME Print bindings for Python
 Summary(pl):	Wi您ania Pythona do biblioteki GNOME obs逝gi drukowania
 Group:		Libraries/Python
 Requires:	%{name} = %{version}-%{release}
-Requires:	python-pygtk-pango >= %{pygtk_req}
+Requires:	python-gnome-canvas >= %{gnome_python_req}
 Obsoletes:	python-gnome-print
 Obsoletes:	python-gnome-print-ui
 Provides:	python-gnome-print
@@ -288,6 +289,7 @@ Wi您ania Pythona do biblioteki GNOME obs逝gi drukowania.
 Summary:	Totem bindings for Python
 Summary(pl):	Wi您ania Pythona do biblioteki totem
 Group:		Libraries/Python
+Requires:	python-gnome-vfs >= %{gnome_python_req}
 Requires:	python-pygtk-gtk >= %{pygtk_req}
 
 %description totem
