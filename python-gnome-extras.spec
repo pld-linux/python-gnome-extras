@@ -9,7 +9,7 @@ Summary:	GNOME bindings for Python
 Summary(pl):	Wi±zania Pythona do bibliotek GNOME
 Name:		python-gnome-extras
 Version:	2.14.0
-Release:	1
+Release:	2
 License:	GPL v2/LGPL v2.1 (see COPYING)
 Group:		Libraries/Python
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-python-extras/2.14/%{module}-%{version}.tar.bz2
@@ -41,6 +41,14 @@ BuildRequires:	python-devel >= 1:2.3.2
 BuildRequires:	python-gnome-devel >= %{gnome_python_req}
 BuildRequires:	python-pygtk-devel >= %{pygtk_req}
 %pyrequires_eq	python-modules
+Obsoletes:	python-gnome-extras-applet
+Obsoletes:	python-gnome-extras-gtksourceview
+Obsoletes:	python-gnome-extras-libgtop
+Obsoletes:	python-gnome-extras-libwnck
+Obsoletes:	python-gnome-extras-mediaprofiles
+Obsoletes:	python-gnome-extras-nautilus-cd-burner
+Obsoletes:	python-gnome-extras-print
+Obsoletes:	python-gnome-extras-totem
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define pydefsdir %(pkg-config --variable=defsdir pygtk-2.0)
