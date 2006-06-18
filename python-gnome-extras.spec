@@ -1,6 +1,6 @@
 %define		module			gnome-python-extras
-%define		pygtk_req		2:2.8.0
-%define		gnome_python_req	2.12.1-3
+%define		pygtk_req		2:2.9.2
+%define		gnome_python_req	2.15.2
 
 # Conditional builds:
 %bcond_without	mozilla_firefox	# build without mozilla-firefox-devel
@@ -9,7 +9,7 @@ Summary:	GNOME bindings for Python
 Summary(pl):	Wi±zania Pythona do bibliotek GNOME
 Name:		python-gnome-extras
 Version:	2.14.0
-Release:	1
+Release:	2
 License:	GPL v2/LGPL v2.1 (see COPYING)
 Group:		Libraries/Python
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-python-extras/2.14/%{module}-%{version}.tar.bz2
@@ -18,17 +18,17 @@ Patch0:		%{name}-MOZILLA_HOME.patch
 Patch1:		%{name}-libgda20.patch
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
-BuildRequires:	gnome-vfs2-devel >= 2.10.1
-BuildRequires:	gtk+2-devel >= 2:2.6.4
-BuildRequires:	gtkspell-devel >= 2.0.8
-BuildRequires:	hal-devel
+BuildRequires:	gnome-vfs2-devel >= 2.15.2
+BuildRequires:	gtk+2-devel >= 2:2.9.3
+BuildRequires:	gtkspell-devel >= 2.0.11
+BuildRequires:	hal-devel >= 0.5.7
 BuildRequires:	libgda-devel >= 1.9.100-2
-BuildRequires:	gdl-devel >= 0.4.0
-BuildRequires:	libgksu-devel >= 1.2.5
-BuildRequires:	libgksuui-devel >= 1.0.3
-BuildRequires:	libgnomeui-devel >= 2.10.0-2
+BuildRequires:	gdl-devel >= 0.6.1
+BuildRequires:	libgksu-devel >= 1.3.8
+BuildRequires:	libgksuui-devel >= 1.0.7
+BuildRequires:	libgnomeui-devel >= 2.15.1
 BuildRequires:	libgtkhtml-devel >= 2.6.3
-BuildRequires:	librsvg-devel >= 1:2.9.5-2
+BuildRequires:	librsvg-devel >= 1:2.15.0
 BuildRequires:	libtool
 %if %{with mozilla_firefox}
 BuildRequires:	mozilla-firefox-devel
@@ -119,7 +119,7 @@ Summary(pl):	Wi±zania Pythona do biblioteki GDL
 Group:		Libraries/Python
 Requires:	python-gnome-ui >= %{gnome_python_req}
 Requires:	python-pygtk-glade >= %{pygtk_req}
-Requires:	gdl >= 0.4.0
+Requires:	gdl >= 0.6.1
 
 %description gdl
 GDL bindings for Python.
