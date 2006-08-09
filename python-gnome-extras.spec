@@ -8,21 +8,20 @@
 Summary:	GNOME bindings for Python
 Summary(pl):	Wi您ania Pythona do bibliotek GNOME
 Name:		python-gnome-extras
-Version:	2.14.0
-Release:	2
+Version:	2.14.2
+Release:	1
 License:	GPL v2/LGPL v2.1 (see COPYING)
 Group:		Libraries/Python
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-python-extras/2.14/%{module}-%{version}.tar.bz2
-# Source0-md5:	e9390569e18a5e71da1ed9476fa750b3
+# Source0-md5:	039e1300368df17de9867685e9705091
 Patch0:		%{name}-MOZILLA_HOME.patch
-Patch1:		%{name}-libgda20.patch
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	gnome-vfs2-devel >= 2.14.0
 BuildRequires:	gtk+2-devel >= 2:2.6.4
 BuildRequires:	gtkspell-devel >= 2.0.8
 BuildRequires:	hal-devel
-BuildRequires:	libgda-devel >= 1.9.100-2
+BuildRequires:	libgda-devel >= 1:1.2.3
 BuildRequires:	gdl-devel >= 0.4.0
 BuildRequires:	libgksu-devel >= 1.2.5
 BuildRequires:	libgksuui-devel >= 1.0.3
@@ -101,6 +100,7 @@ Wi您ania Pythona do egg.trayicon.
 Summary:	Libgda bindings for Python
 Summary(pl):	Wi您ania Pythona do biblioteki libgda
 Group:		Libraries/Python
+Requires:	libgda >= 1:1.2.3
 Requires:	python-pygtk-gtk >= %{pygtk_req}
 
 %description gda
@@ -113,7 +113,7 @@ Wi您ania Pythona do biblioteki libgda.
 Summary:	Header files for pygda library
 Summary(pl):	Pliki nag堯wkowe biblioteki pygda
 Group:		Libraries/Python
-Requires:	libgda-devel >= 1.9.100-2
+Requires:	libgda-devel >= 1:1.2.3
 
 %description gda-devel
 Header files for pygda library.
@@ -188,7 +188,6 @@ Wi您ania Pythona do mozilli.
 %prep
 %setup -q -n %{module}-%{version}
 %patch0 -p1
-%patch1 -p1
 
 %build
 %{__libtoolize}
@@ -222,7 +221,7 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %{pydefsdir}/*
-%{_pkgconfigdir}/*.pc
+%{_pkgconfigdir}/gnome-python-extras-2.0.pc
 
 %files examples
 %defattr(644,root,root,755)
@@ -240,7 +239,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files gda-devel
 %defattr(644,root,root,755)
-%{_includedir}/pygda-2.0
+%{_includedir}/pygda-1.2
+%{_pkgconfigdir}/pygda-1.2.pc
 
 %files gdl
 %defattr(644,root,root,755)
