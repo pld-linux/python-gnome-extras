@@ -1,0 +1,2 @@
+- rel.3, use HEAD deps, dropped gda patch (support for new gda dropped
+  upstream), use stable gda, dropped support for old mozilla
