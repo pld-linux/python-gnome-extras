@@ -1,40 +1,33 @@
+#
 %define		module			gnome-python-extras
-%define		pygtk_req		2:2.9.2
-%define		gnome_python_req	2.15.2
-
-# Conditional builds:
-%bcond_without	mozilla_firefox	# build without mozilla-firefox-devel
-
+%define		pygtk_req		2:2.9.6
+%define		gnome_python_req	2.15.90
+#
 Summary:	GNOME bindings for Python
 Summary(pl):	Wi您ania Pythona do bibliotek GNOME
 Name:		python-gnome-extras
 Version:	2.14.2
-Release:	2
+Release:	3
 License:	GPL v2/LGPL v2.1 (see COPYING)
 Group:		Libraries/Python
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-python-extras/2.14/%{module}-%{version}.tar.bz2
 # Source0-md5:	039e1300368df17de9867685e9705091
 Patch0:		%{name}-MOZILLA_HOME.patch
-Patch1:		%{name}-libgda20.patch
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	gnome-vfs2-devel >= 2.15.2
 BuildRequires:	gtk+2-devel >= 2:2.9.3
 BuildRequires:	gtkspell-devel >= 2.0.11
 BuildRequires:	hal-devel >= 0.5.7
-BuildRequires:	libgda-devel >= 1.9.100-2
+BuildRequires:	libgda-devel >= 1:1.2.3
 BuildRequires:	gdl-devel >= 0.6.1
 BuildRequires:	libgksu-devel >= 1.3.8
-BuildRequires:	libgksuui-devel >= 1.0.7
-BuildRequires:	libgnomeui-devel >= 2.15.1
-BuildRequires:	libgtkhtml-devel >= 2.6.3
-BuildRequires:	librsvg-devel >= 1:2.15.0
+BuildRequires:	libgksuui-devel >= 1.0.7-3
+BuildRequires:	libgnomeui-devel >= 2.15.91
+BuildRequires:	libgtkhtml-devel >= 2.6.3-5
+BuildRequires:	librsvg-devel >= 1:2.15.90
 BuildRequires:	libtool
-%if %{with mozilla_firefox}
-BuildRequires:	mozilla-firefox-devel
-%else
-BuildRequires:	mozilla-devel
-%endif
+BuildRequires:	mozilla-firefox-devel >= 1.5.0.6
 BuildRequires:	pkgconfig
 BuildRequires:	popt-devel
 BuildRequires:	python-devel >= 1:2.3.2
@@ -94,6 +87,7 @@ Summary:	Libgda bindings for Python
 Summary(pl):	Wi您ania Pythona do biblioteki libgda
 Group:		Libraries/Python
 Requires:	python-pygtk-gtk >= %{pygtk_req}
+Requires:	libgda >= 1:1.2.3
 
 %description gda
 Libgda bindings for Python.
@@ -105,7 +99,7 @@ Wi您ania Pythona do biblioteki libgda.
 Summary:	Header files for pygda library
 Summary(pl):	Pliki nag堯wkowe biblioteki pygda
 Group:		Libraries/Python
-Requires:	libgda-devel >= 1.9.100-2
+Requires:	libgda-devel >= 1:1.2.3
 
 %description gda-devel
 Header files for pygda library.
@@ -158,6 +152,7 @@ Summary:	Libgksu and libgksuui bindings for Python
 Summary(pl):	Wi您ania Pythona do bibliotek libgksu i libgksuui
 Group:		Libraries/Python
 Requires:	python-pygtk-gtk >= %{pygtk_req}
+Requires:	libgksuui >= 1.0.7-3
 
 %description libgksu
 Libgksu and libgksuui bindings for Python.
@@ -180,7 +175,6 @@ Wi您ania Pythona do mozilli.
 %prep
 %setup -q -n %{module}-%{version}
 %patch0 -p1
-%patch1 -p1
 
 %build
 %{__libtoolize}
@@ -232,7 +226,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files gda-devel
 %defattr(644,root,root,755)
-%{_includedir}/pygda-2.0
+%{_includedir}/pygda-1.2
 
 %files gdl
 %defattr(644,root,root,755)
