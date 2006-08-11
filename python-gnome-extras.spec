@@ -7,7 +7,7 @@ Summary:	GNOME bindings for Python
 Summary(pl):	Wi±zania Pythona do bibliotek GNOME
 Name:		python-gnome-extras
 Version:	2.14.2
-Release:	3
+Release:	4
 License:	GPL v2/LGPL v2.1 (see COPYING)
 Group:		Libraries/Python
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-python-extras/2.14/%{module}-%{version}.tar.bz2
@@ -208,7 +208,7 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %{pydefsdir}/*
-%{_pkgconfigdir}/*.pc
+%{_pkgconfigdir}/gnome-python-extras-2.0.pc
 
 %files examples
 %defattr(644,root,root,755)
@@ -227,6 +227,7 @@ rm -rf $RPM_BUILD_ROOT
 %files gda-devel
 %defattr(644,root,root,755)
 %{_includedir}/pygda-1.2
+%{_pkgconfigdir}/pygda-1.2.pc
 
 %files gdl
 %defattr(644,root,root,755)
