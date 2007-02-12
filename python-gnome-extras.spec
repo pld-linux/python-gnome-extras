@@ -4,7 +4,7 @@
 %define		gnome_python_req	2.15.90
 #
 Summary:	GNOME bindings for Python
-Summary(pl):	Wi±zania Pythona do bibliotek GNOME
+Summary(pl.UTF-8):   WiÄ…zania Pythona do bibliotek GNOME
 Name:		python-gnome-extras
 Version:	2.14.2
 Release:	6
@@ -41,12 +41,12 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 GNOME bindings for Python.
 
-%description -l pl
-Wi±zania Pythona do bibliotek GNOME.
+%description -l pl.UTF-8
+WiÄ…zania Pythona do bibliotek GNOME.
 
 %package devel
 Summary:	Development files for GNOME bindings for Python
-Summary(pl):	Pliki programistyczne wi±zañ Pythona do GNOME
+Summary(pl.UTF-8):   Pliki programistyczne wiÄ…zaÅ„ Pythona do GNOME
 Group:		Libraries/Python
 Requires:	%{name}-gtkhtml = %{version}-%{release}
 Requires:	%{name}-egg = %{version}-%{release}
@@ -55,36 +55,36 @@ Requires:	python-pygtk-devel >= %{pygtk_req}
 %description devel
 Development files for GNOME bindings for Python.
 
-%description devel -l pl
-Pliki programistyczne wi±zañ Pythona do GNOME.
+%description devel -l pl.UTF-8
+Pliki programistyczne wiÄ…zaÅ„ Pythona do GNOME.
 
 %package examples
 Summary:	Example programs for python-gnome-extras
-Summary(pl):	Przyk³adowe programy do python-gnome-extras
+Summary(pl.UTF-8):   PrzykÅ‚adowe programy do python-gnome-extras
 Group:		Libraries/Python
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description examples
 This package contains example programs for python-gnome-extras.
 
-%description examples -l pl
-Ten pakiet zawiera przyk³adowe programy dla python-gnome-extras.
+%description examples -l pl.UTF-8
+Ten pakiet zawiera przykÅ‚adowe programy dla python-gnome-extras.
 
 %package egg
 Summary:	egg.trayicon bindings for Python
-Summary(pl):	Wi±zania Pythona do egg.trayicon
+Summary(pl.UTF-8):   WiÄ…zania Pythona do egg.trayicon
 Group:		Libraries/Python
 Requires:	python-gnome-ui >= %{gnome_python_req}
 
 %description egg
 egg.trayicon bindings for Python.
 
-%description egg -l pl
-Wi±zania Pythona do egg.trayicon.
+%description egg -l pl.UTF-8
+WiÄ…zania Pythona do egg.trayicon.
 
 %package gda
 Summary:	Libgda bindings for Python
-Summary(pl):	Wi±zania Pythona do biblioteki libgda
+Summary(pl.UTF-8):   WiÄ…zania Pythona do biblioteki libgda
 Group:		Libraries/Python
 Requires:	python-pygtk-gtk >= %{pygtk_req}
 Requires:	libgda >= 1:1.2.3
@@ -92,24 +92,24 @@ Requires:	libgda >= 1:1.2.3
 %description gda
 Libgda bindings for Python.
 
-%description gda -l pl
-Wi±zania Pythona do biblioteki libgda.
+%description gda -l pl.UTF-8
+WiÄ…zania Pythona do biblioteki libgda.
 
 %package gda-devel
 Summary:	Header files for pygda library
-Summary(pl):	Pliki nag³ówkowe biblioteki pygda
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe biblioteki pygda
 Group:		Libraries/Python
 Requires:	libgda-devel >= 1:1.2.3
 
 %description gda-devel
 Header files for pygda library.
 
-%description gda-devel -l pl
-Pliki nag³ówkowe biblioteki pygda.
+%description gda-devel -l pl.UTF-8
+Pliki nagÅ‚Ã³wkowe biblioteki pygda.
 
 %package gdl
 Summary:	GDL bindings for Python
-Summary(pl):	Wi±zania Pythona do biblioteki GDL
+Summary(pl.UTF-8):   WiÄ…zania Pythona do biblioteki GDL
 Group:		Libraries/Python
 Requires:	python-gnome-ui >= %{gnome_python_req}
 Requires:	python-pygtk-glade >= %{pygtk_req}
@@ -118,12 +118,12 @@ Requires:	gdl >= 0.6.1
 %description gdl
 GDL bindings for Python.
 
-%description gdl -l pl
-Wi±zania Pythona do biblioteki GDL.
+%description gdl -l pl.UTF-8
+WiÄ…zania Pythona do biblioteki GDL.
 
 %package gtkhtml
 Summary:	GtkHtml bindings for Python
-Summary(pl):	Wi±zania Pythona do biblioteki GtkHtml
+Summary(pl.UTF-8):   WiÄ…zania Pythona do biblioteki GtkHtml
 Group:		Libraries/Python
 Requires:	python-gnome-canvas >= %{gnome_python_req}
 Obsoletes:	python-gnome-gtkhtml < 2.9.0
@@ -132,24 +132,24 @@ Provides:	python-gnome-gtkhtml = %{version}-%{release}
 %description gtkhtml
 GtkHtml bindings for Python.
 
-%description gtkhtml -l pl
-Wi±zania Pythona do biblioteki GtkHtml.
+%description gtkhtml -l pl.UTF-8
+WiÄ…zania Pythona do biblioteki GtkHtml.
 
 %package gtkspell
 Summary:	Gtkspell bindings for Python
-Summary(pl):	Wi±zania Pythona do biblioteki gtkspell
+Summary(pl.UTF-8):   WiÄ…zania Pythona do biblioteki gtkspell
 Group:		Libraries/Python
 Requires:	python-pygtk-gtk >= %{pygtk_req}
 
 %description gtkspell
 Gtkspell bindings for Python.
 
-%description gtkspell -l pl
-Wi±zania Pythona do biblioteki gtkspell.
+%description gtkspell -l pl.UTF-8
+WiÄ…zania Pythona do biblioteki gtkspell.
 
 %package libgksu
 Summary:	Libgksu and libgksuui bindings for Python
-Summary(pl):	Wi±zania Pythona do bibliotek libgksu i libgksuui
+Summary(pl.UTF-8):   WiÄ…zania Pythona do bibliotek libgksu i libgksuui
 Group:		Libraries/Python
 Requires:	python-pygtk-gtk >= %{pygtk_req}
 Requires:	libgksuui >= 1.0.7-3
@@ -157,20 +157,20 @@ Requires:	libgksuui >= 1.0.7-3
 %description libgksu
 Libgksu and libgksuui bindings for Python.
 
-%description libgksu -l pl
-Wi±zania Pythona do bibliotek libgksu i libgksuui.
+%description libgksu -l pl.UTF-8
+WiÄ…zania Pythona do bibliotek libgksu i libgksuui.
 
 %package mozilla
 Summary:	Mozilla bindings for Python
-Summary(pl):	Wi±zania Pythona do mozilli
+Summary(pl.UTF-8):   WiÄ…zania Pythona do mozilli
 Group:		Libraries/Python
 Requires:	python-pygtk-gtk >= %{pygtk_req}
 
 %description mozilla
 Mozilla bindings for Python.
 
-%description mozilla -l pl
-Wi±zania Pythona do mozilli.
+%description mozilla -l pl.UTF-8
+WiÄ…zania Pythona do mozilli.
 
 %prep
 %setup -q -n %{module}-%{version}
