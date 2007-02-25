@@ -1,33 +1,33 @@
 #
 %define		module			gnome-python-extras
-%define		pygtk_req		2:2.9.6
-%define		gnome_python_req	2.15.90
+%define		pygtk_req		2:2.10.4
+%define		gnome_python_req	2.16.2
 #
 Summary:	GNOME bindings for Python
 Summary(pl.UTF-8):	Wiązania Pythona do bibliotek GNOME
 Name:		python-gnome-extras
-Version:	2.14.2
-Release:	6
+Version:	2.14.3
+Release:	1
 License:	GPL v2/LGPL v2.1 (see COPYING)
 Group:		Libraries/Python
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-python-extras/2.14/%{module}-%{version}.tar.bz2
-# Source0-md5:	039e1300368df17de9867685e9705091
+# Source0-md5:	7d3414838ccb94cfcecc0a48f68c012d
 Patch0:		%{name}-MOZILLA_HOME.patch
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
-BuildRequires:	gnome-vfs2-devel >= 2.15.2
-BuildRequires:	gtk+2-devel >= 2:2.9.3
+BuildRequires:	gnome-vfs2-devel >= 2.16.3
+BuildRequires:	gtk+2-devel >= 2:2.10.9
 BuildRequires:	gtkspell-devel >= 2.0.11
 BuildRequires:	hal-devel >= 0.5.7
 BuildRequires:	libgda-devel >= 1:1.2.3
-BuildRequires:	gdl-devel >= 0.6.1
+BuildRequires:	gdl-devel >= 0.7.2
 BuildRequires:	libgksu-devel >= 1.3.8
 BuildRequires:	libgksuui-devel >= 1.0.7-3
-BuildRequires:	libgnomeui-devel >= 2.15.91
+BuildRequires:	libgnomeui-devel >= 2.16.1
 BuildRequires:	libgtkhtml-devel >= 2.6.3-5
-BuildRequires:	librsvg-devel >= 1:2.15.90
+BuildRequires:	librsvg-devel >= 1:2.16.1
 BuildRequires:	libtool
-BuildRequires:	mozilla-firefox-devel >= 1.5.0.6
+BuildRequires:	xulrunner-devel >= 1.8.1.1
 BuildRequires:	pkgconfig
 BuildRequires:	popt-devel
 BuildRequires:	python-devel >= 1:2.3.2
@@ -113,7 +113,7 @@ Summary(pl.UTF-8):	Wiązania Pythona do biblioteki GDL
 Group:		Libraries/Python
 Requires:	python-gnome-ui >= %{gnome_python_req}
 Requires:	python-pygtk-glade >= %{pygtk_req}
-Requires:	gdl >= 0.6.1
+Requires:	gdl >= 0.7.2
 
 %description gdl
 GDL bindings for Python.
@@ -165,6 +165,7 @@ Summary:	Mozilla bindings for Python
 Summary(pl.UTF-8):	Wiązania Pythona do mozilli
 Group:		Libraries/Python
 Requires:	python-pygtk-gtk >= %{pygtk_req}
+%requires_eq	xulrunner-libs
 
 %description mozilla
 Mozilla bindings for Python.
