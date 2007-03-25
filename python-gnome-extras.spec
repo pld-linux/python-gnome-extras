@@ -22,6 +22,8 @@ BuildRequires:	hal-devel >= 0.5.7
 BuildRequires:	libgda-devel >= 1:1.2.3
 BuildRequires:	gdl-devel >= 0.7.2
 BuildRequires:	libgksu-devel >= 1.3.8
+# requires libgksu1.2.pc (definitly not gksu-2 ready)
+BuildRequires:	libgksu-devel <= 1.5.0
 BuildRequires:	libgksuui-devel >= 1.0.7-3
 BuildRequires:	libgnomeui-devel >= 2.16.1
 BuildRequires:	libgtkhtml-devel >= 2.6.3-5
