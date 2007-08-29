@@ -6,12 +6,12 @@
 Summary:	GNOME bindings for Python
 Summary(pl.UTF-8):	Wiązania Pythona do bibliotek GNOME
 Name:		python-gnome-extras
-Version:	2.14.3
-Release:	5
+Version:	2.19.1
+Release:	1
 License:	GPL v2/LGPL v2.1 (see COPYING)
 Group:		Libraries/Python
-Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-python-extras/2.14/%{module}-%{version}.tar.bz2
-# Source0-md5:	7d3414838ccb94cfcecc0a48f68c012d
+Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-python-extras/2.19/%{module}-%{version}.tar.bz2
+# Source0-md5:	08896c63d71ce44d20fafbaf9c0edc78
 Patch0:		%{name}-MOZILLA_HOME.patch
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
@@ -19,11 +19,9 @@ BuildRequires:	gnome-vfs2-devel >= 2.16.3
 BuildRequires:	gtk+2-devel >= 2:2.10.9
 BuildRequires:	gtkspell-devel >= 2.0.11
 BuildRequires:	hal-devel >= 0.5.7
-BuildRequires:	libgda-devel >= 1:1.2.3
+BuildRequires:	libgda3-devel
 BuildRequires:	gdl-devel >= 0.7.2
-BuildRequires:	libgksu-devel >= 1.3.8
-# requires libgksu1.2.pc (definitly not gksu-2 ready)
-BuildRequires:	libgksu-devel <= 1.5.0
+BuildRequires:	libgksu-devel >= 2.0.4
 BuildRequires:	libgksuui-devel >= 1.0.7-3
 BuildRequires:	libgnomeui-devel >= 2.16.1
 BuildRequires:	libgtkhtml-devel >= 2.6.3-5
@@ -229,8 +227,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files gda-devel
 %defattr(644,root,root,755)
-%{_includedir}/pygda-1.2
-%{_pkgconfigdir}/pygda-1.2.pc
+%{_includedir}/pygda-3.0
+%{_pkgconfigdir}/pygda-3.0.pc
 
 %files gdl
 %defattr(644,root,root,755)
@@ -247,9 +245,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %files libgksu
 %defattr(644,root,root,755)
-%dir %{py_sitedir}/gtk-2.0/gksu
-%attr(755,root,root) %{py_sitedir}/gtk-2.0/gksu/*.so
-%{py_sitedir}/gtk-2.0/gksu/*.py?
+%dir %{py_sitedir}/gtk-2.0/gksu2
+%attr(755,root,root) %{py_sitedir}/gtk-2.0/gksu2/*.so
+%{py_sitedir}/gtk-2.0/gksu2/*.py?
 
 %files mozilla
 %defattr(644,root,root,755)
