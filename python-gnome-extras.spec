@@ -1,7 +1,7 @@
 #
 %define		module			gnome-python-extras
-%define		pygtk_req		2:2.10.4
-%define		gnome_python_req	2.16.2
+%define		pygtk_req		2:2.12.0
+%define		gnome_python_req	2.18.0
 #
 Summary:	GNOME bindings for Python
 Summary(pl.UTF-8):	Wiązania Pythona do bibliotek GNOME
@@ -15,17 +15,17 @@ Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-python-extras/2.19/%{modul
 Patch0:		%{name}-MOZILLA_HOME.patch
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
-BuildRequires:	gnome-vfs2-devel >= 2.16.3
-BuildRequires:	gtk+2-devel >= 2:2.10.9
+BuildRequires:	gnome-vfs2-devel >= 2.20.0
+BuildRequires:	gtk+2-devel >= 2:2.12.0
 BuildRequires:	gtkspell-devel >= 2.0.11
-BuildRequires:	hal-devel >= 0.5.7
+BuildRequires:	hal-devel >= 0.5.9
 BuildRequires:	libgda3-devel
 BuildRequires:	gdl-devel >= 0.7.2
 BuildRequires:	libgksu-devel >= 2.0.4
 BuildRequires:	libgksuui-devel >= 1.0.7-3
 BuildRequires:	libgnomeui-devel >= 2.16.1
 BuildRequires:	libgtkhtml-devel >= 2.6.3-5
-BuildRequires:	librsvg-devel >= 1:2.16.1
+BuildRequires:	librsvg-devel >= 1:2.18.1
 BuildRequires:	libtool
 BuildRequires:	xulrunner-devel >= 1.8.1.1
 BuildRequires:	pkgconfig
@@ -87,7 +87,6 @@ Summary:	Libgda bindings for Python
 Summary(pl.UTF-8):	Wiązania Pythona do biblioteki libgda
 Group:		Libraries/Python
 Requires:	python-pygtk-gtk >= %{pygtk_req}
-Requires:	libgda >= 1:1.2.3
 
 %description gda
 Libgda bindings for Python.
@@ -99,7 +98,7 @@ Wiązania Pythona do biblioteki libgda.
 Summary:	Header files for pygda library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki pygda
 Group:		Libraries/Python
-Requires:	libgda-devel >= 1:1.2.3
+Requires:	libgda3-devel
 
 %description gda-devel
 Header files for pygda library.
@@ -198,6 +197,7 @@ install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 cp -a examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 rm -f $RPM_BUILD_ROOT%{py_sitedir}/gtk-2.0/{*.la,*/{*.la,*.py}}
+rm -f $RPM_BUILD_ROOT%{_datadir}/pygtk/2.0/argtypes/*.py
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -224,6 +224,7 @@ rm -rf $RPM_BUILD_ROOT
 %files gda
 %defattr(644,root,root,755)
 %attr(755,root,root) %{py_sitedir}/gtk-2.0/gda.so
+%{_datadir}/pygtk/2.0/argtypes/gda-arg-types.py?
 
 %files gda-devel
 %defattr(644,root,root,755)
