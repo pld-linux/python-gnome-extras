@@ -6,35 +6,35 @@
 Summary:	GNOME bindings for Python
 Summary(pl.UTF-8):	Wiązania Pythona do bibliotek GNOME
 Name:		python-gnome-extras
-Version:	2.14.3
-Release:	5
+Version:	2.19.1
+Release:	1
 License:	GPL v2/LGPL v2.1 (see COPYING)
 Group:		Libraries/Python
-Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-python-extras/2.14/%{module}-%{version}.tar.bz2
-# Source0-md5:	7d3414838ccb94cfcecc0a48f68c012d
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-python-extras/2.19/%{module}-%{version}.tar.bz2
+# Source0-md5:	08896c63d71ce44d20fafbaf9c0edc78
 Patch0:		%{name}-MOZILLA_HOME.patch
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
+BuildRequires:	gdl-devel >= 0.7.2
+BuildRequires:	glib2-devel >= 1:2.6
 BuildRequires:	gnome-vfs2-devel >= 2.16.3
-BuildRequires:	gtk+2-devel >= 2:2.10.9
+BuildRequires:	gtk+2-devel >= 2:2.10.0
 BuildRequires:	gtkspell-devel >= 2.0.11
 BuildRequires:	hal-devel >= 0.5.7
-BuildRequires:	libgda-devel >= 1:1.2.3
-BuildRequires:	gdl-devel >= 0.7.2
-BuildRequires:	libgksu-devel >= 1.3.8
-# requires libgksu1.2.pc (definitly not gksu-2 ready)
-BuildRequires:	libgksu-devel <= 1.5.0
-BuildRequires:	libgksuui-devel >= 1.0.7-3
+BuildRequires:	libgda3-devel >= 2.99.6
+BuildRequires:	libgksu-devel >= 2.0.4
+BuildRequires:	libgksuui-devel >= 1.0.3
 BuildRequires:	libgnomeui-devel >= 2.16.1
-BuildRequires:	libgtkhtml-devel >= 2.6.3-5
+BuildRequires:	libgtkhtml-devel >= 2.3.1
 BuildRequires:	librsvg-devel >= 1:2.16.1
 BuildRequires:	libtool
-BuildRequires:	xulrunner-devel >= 1.8.1.1
 BuildRequires:	pkgconfig
 BuildRequires:	popt-devel
 BuildRequires:	python-devel >= 1:2.3.2
 BuildRequires:	python-gnome-devel >= %{gnome_python_req}
 BuildRequires:	python-pygtk-devel >= %{pygtk_req}
+BuildRequires:	rpmbuild(macros) >= 1.234
+BuildRequires:	xulrunner-devel >= 1.8
 %pyrequires_eq	python-modules
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -50,8 +50,8 @@ Wiązania Pythona do bibliotek GNOME.
 Summary:	Development files for GNOME bindings for Python
 Summary(pl.UTF-8):	Pliki programistyczne wiązań Pythona do GNOME
 Group:		Libraries/Python
-Requires:	%{name}-gtkhtml = %{version}-%{release}
 Requires:	%{name}-egg = %{version}-%{release}
+Requires:	%{name}-gtkhtml = %{version}-%{release}
 Requires:	python-pygtk-devel >= %{pygtk_req}
 
 %description devel
@@ -88,8 +88,8 @@ Wiązania Pythona do egg.trayicon.
 Summary:	Libgda bindings for Python
 Summary(pl.UTF-8):	Wiązania Pythona do biblioteki libgda
 Group:		Libraries/Python
-Requires:	python-pygtk-gtk >= %{pygtk_req}
 Requires:	libgda >= 1:1.2.3
+Requires:	python-pygtk-gtk >= %{pygtk_req}
 
 %description gda
 Libgda bindings for Python.
@@ -113,9 +113,9 @@ Pliki nagłówkowe biblioteki pygda.
 Summary:	GDL bindings for Python
 Summary(pl.UTF-8):	Wiązania Pythona do biblioteki GDL
 Group:		Libraries/Python
+Requires:	gdl >= 0.7.2
 Requires:	python-gnome-ui >= %{gnome_python_req}
 Requires:	python-pygtk-glade >= %{pygtk_req}
-Requires:	gdl >= 0.7.2
 
 %description gdl
 GDL bindings for Python.
@@ -128,8 +128,8 @@ Summary:	GtkHtml bindings for Python
 Summary(pl.UTF-8):	Wiązania Pythona do biblioteki GtkHtml
 Group:		Libraries/Python
 Requires:	python-gnome-canvas >= %{gnome_python_req}
-Obsoletes:	python-gnome-gtkhtml < 2.9.0
 Provides:	python-gnome-gtkhtml = %{version}-%{release}
+Obsoletes:	python-gnome-gtkhtml < 2.9.0
 
 %description gtkhtml
 GtkHtml bindings for Python.
@@ -153,8 +153,8 @@ Wiązania Pythona do biblioteki gtkspell.
 Summary:	Libgksu and libgksuui bindings for Python
 Summary(pl.UTF-8):	Wiązania Pythona do bibliotek libgksu i libgksuui
 Group:		Libraries/Python
-Requires:	python-pygtk-gtk >= %{pygtk_req}
 Requires:	libgksuui >= 1.0.7-3
+Requires:	python-pygtk-gtk >= %{pygtk_req}
 
 %description libgksu
 Libgksu and libgksuui bindings for Python.
@@ -199,7 +199,8 @@ install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 cp -a examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
-rm -f $RPM_BUILD_ROOT%{py_sitedir}/gtk-2.0/{*.la,*/{*.la,*.py}}
+rm -f $RPM_BUILD_ROOT%{py_sitedir}/gtk-2.0/{*.la,*/*.la}
+%py_postclean /usr/share/pygtk/2.0
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -221,16 +222,17 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %dir %{py_sitedir}/gtk-2.0/egg
 %attr(755,root,root) %{py_sitedir}/gtk-2.0/egg/*.so
-%{py_sitedir}/gtk-2.0/egg/__init__.py?
+%{py_sitedir}/gtk-2.0/egg/__init__.py[co]
 
 %files gda
 %defattr(644,root,root,755)
 %attr(755,root,root) %{py_sitedir}/gtk-2.0/gda.so
+%{_datadir}/pygtk/2.0/argtypes/gda-arg-types.py[co]
 
 %files gda-devel
 %defattr(644,root,root,755)
-%{_includedir}/pygda-1.2
-%{_pkgconfigdir}/pygda-1.2.pc
+%{_includedir}/pygda-3.0
+%{_pkgconfigdir}/pygda-3.0.pc
 
 %files gdl
 %defattr(644,root,root,755)
@@ -247,9 +249,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %files libgksu
 %defattr(644,root,root,755)
-%dir %{py_sitedir}/gtk-2.0/gksu
-%attr(755,root,root) %{py_sitedir}/gtk-2.0/gksu/*.so
-%{py_sitedir}/gtk-2.0/gksu/*.py?
+%dir %{py_sitedir}/gtk-2.0/gksu2
+%{py_sitedir}/gtk-2.0/gksu2/__init__.py[co]
+%attr(755,root,root) %{py_sitedir}/gtk-2.0/gksu2/_gksu2.so
 
 %files mozilla
 %defattr(644,root,root,755)
