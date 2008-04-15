@@ -102,6 +102,7 @@ Summary:	Header files for pygda library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki pygda
 Group:		Libraries/Python
 Requires:	libgda-devel >= 1:1.2.3
+Requires:	python-gnome-devel >= %{gnome_python_req}
 
 %description gda-devel
 Header files for pygda library.
@@ -227,11 +228,11 @@ rm -rf $RPM_BUILD_ROOT
 %files gda
 %defattr(644,root,root,755)
 %attr(755,root,root) %{py_sitedir}/gtk-2.0/gda.so
-%{_datadir}/pygtk/2.0/argtypes/gda-arg-types.py[co]
 
 %files gda-devel
 %defattr(644,root,root,755)
 %{_includedir}/pygda-3.0
+%{_datadir}/pygtk/2.0/argtypes/gda-arg-types.py[co]
 %{_pkgconfigdir}/pygda-3.0.pc
 
 %files gdl
