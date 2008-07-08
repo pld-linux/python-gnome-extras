@@ -7,12 +7,13 @@ Summary:	GNOME bindings for Python
 Summary(pl.UTF-8):	Wiązania Pythona do bibliotek GNOME
 Name:		python-gnome-extras
 Version:	2.19.1
-Release:	9
+Release:	10
 License:	GPL v2/LGPL v2.1 (see COPYING)
 Group:		Libraries/Python
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-python-extras/2.19/%{module}-%{version}.tar.bz2
 # Source0-md5:	08896c63d71ce44d20fafbaf9c0edc78
 Patch0:		%{name}-MOZILLA_HOME.patch
+Patch1:		%{name}-xulrunner.patch
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	gdl-devel >= 0.7.2
@@ -34,7 +35,7 @@ BuildRequires:	python-devel >= 1:2.3.2
 BuildRequires:	python-gnome-devel >= %{gnome_python_req}
 BuildRequires:	python-pygtk-devel >= %{pygtk_req}
 BuildRequires:	rpmbuild(macros) >= 1.234
-BuildRequires:	xulrunner-devel >= 1.8
+BuildRequires:	xulrunner-devel >= 1.9-5
 %pyrequires_eq	python-modules
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -179,6 +180,7 @@ Wiązania Pythona do mozilli.
 %prep
 %setup -q -n %{module}-%{version}
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__libtoolize}
