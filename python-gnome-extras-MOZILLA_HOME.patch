@@ -6,7 +6,7 @@ diff -urN aa/gnome-python-extras-2.9.3/configure.ac gnome-python-extras-2.9.3/co
    GTKMOZEMBED_LIBS=`echo $GTKMOZEMBED_LIBS | sed -e "s/$export_dynamic//"`
  fi
 -MOZILLA_HOME="`$PKG_CONFIG --variable=libdir $mozpackage-gtkmozembed`"
-+MOZILLA_HOME="`$PKG_CONFIG --variable=libdir $mozpackage-plugin`"
++MOZILLA_HOME="`$PKG_CONFIG --variable=libdir libxul`"
  AC_SUBST(MOZILLA_HOME)
  
  
