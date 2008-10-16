@@ -18,7 +18,7 @@ Patch1:		%{name}-xulrunner.patch
 Patch2:		%{name}-new-gdl.patch
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
-BuildRequires:	gdl-devel >= 0.7.2
+BuildRequires:	gdl-devel >= 2.24.0
 BuildRequires:	glib2-devel >= 1:2.6
 BuildRequires:	gnome-vfs2-devel >= 2.16.3
 BuildRequires:	gtk+2-devel >= 2:2.10.0
