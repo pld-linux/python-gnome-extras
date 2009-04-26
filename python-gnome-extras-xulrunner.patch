@@ -1,24 +1,6 @@
-diff -urN gnome-python-extras-2.19.1/gtkmozembed/gtkmozembed.defs gnome-python-extras-2.19.1.new/gtkmozembed/gtkmozembed.defs
---- gnome-python-extras-2.19.1/gtkmozembed/gtkmozembed.defs	2007-06-05 16:52:30.000000000 +0200
-+++ gnome-python-extras-2.19.1.new/gtkmozembed/gtkmozembed.defs	2008-07-09 00:04:24.000000000 +0200
-@@ -123,6 +123,14 @@
-   )
- )
- 
-+(define-function set_path
-+  (c-name "gtk_moz_embed_set_path")
-+  (return-type "none")
-+  (parameters
-+    '("char*" "aPath")
-+  )
-+)
-+
- (define-function gtk_moz_embed_set_profile_path
-   (c-name "gtk_moz_embed_set_profile_path_deprecated")
-   (return-type "none")
-diff -urN gnome-python-extras-2.19.1/gtkmozembed/Makefile.am gnome-python-extras-2.19.1.new/gtkmozembed/Makefile.am
---- gnome-python-extras-2.19.1/gtkmozembed/Makefile.am	2007-06-05 16:52:30.000000000 +0200
-+++ gnome-python-extras-2.19.1.new/gtkmozembed/Makefile.am	2008-07-09 00:03:28.000000000 +0200
+diff -urN gnome-python-extras-2.25.3/gtkmozembed/Makefile.am gnome-python-extras-2.25.3.new/gtkmozembed/Makefile.am
+--- gnome-python-extras-2.25.3/gtkmozembed/Makefile.am	2008-12-12 02:06:29.000000000 +0100
++++ gnome-python-extras-2.25.3.new/gtkmozembed/Makefile.am	2009-04-26 00:42:54.423462020 +0200
 @@ -1,7 +1,7 @@
  # require automake-1.5
  AUTOMAKE_OPTIONS = 1.5

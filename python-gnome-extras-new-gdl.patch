@@ -1,10 +1,82 @@
---- gdl/gdl.override	(Revision 436)
-+++ gdl/gdl.override	(Arbeitskopie)
-@@ -6,7 +6,6 @@
- #include <pygtk/pygtk.h>
- #include <gdl/gdl-dock.h>
- #include <gdl/libgdltypebuiltins.h>
--#include <gdl/gdl-icons.h>
- #ifndef HAVE_GDL_0_7
- # include <gdl/gdl-dock-bar.h>
- #endif
+Index: configure.ac
+===================================================================
+--- configure.ac	(revision 436)
++++ configure.ac	(working copy)
+@@ -310,7 +310,7 @@
+ AC_ARG_BINDING([gdl], [ON])
+ if $build_gdl; then
+   have_gdl07=false
+-  PKG_CHECK_MODULES(GDL, [gdl-1.0 >= 0.7.1 gdl-gnome-1.0 >= 0.7.1 pygtk-2.0 >= pygtk_required_version], dnl
++  PKG_CHECK_MODULES(GDL, [gdl-1.0 >= 0.7.1 pygtk-2.0 >= pygtk_required_version], dnl
+                     [build_gdl=true; have_gdl07=true], build_gdl=false)
+ 
+   dnl try again with no gnome and older version
+Index: gdl/gdl.defs
+===================================================================
+--- gdl/gdl.defs	(revision 436)
++++ gdl/gdl.defs	(working copy)
+@@ -81,17 +81,6 @@
+   (gtype-id "GDL_TYPE_DOCK_TABLABEL")
+ )
+ 
+-(ifdef HAVE_GDL_0_7
+-
+-(define-object Icons
+-  (in-module "Gdl")
+-  (parent "GObject")
+-  (c-name "GdlIcons")
+-  (gtype-id "GDL_TYPE_ICONS")
+-)
+-
+-) ; ifdef HAVE_GDL_0_7
+-
+ ;; Enumerations and flags ...
+ 
+ (ifdef HAVE_GDL_0_7
+@@ -924,46 +913,3 @@
+   (return-type "none")
+ )
+ 
+-;; From gdl-icons.h
+-
+-(ifdef HAVE_GDL_0_7
+-
+-(define-function gdl_icons_new
+-  (is-constructor-of "GdlIcons")
+-  (c-name "gdl_icons_new")
+-  (return-type "GdlIcons*")
+-  (parameters
+-    '("int" "icon_size")
+-  )
+-)
+-
+-(define-function gdl_icons_get_type
+-  (c-name "gdl_icons_get_type")
+-  (return-type "GType")
+-)
+-
+-(define-method get_folder_icon
+-  (of-object "GdlIcons")
+-  (c-name "gdl_icons_get_folder_icon")
+-  (return-type "GdkPixbuf*")
+-)
+-
+-(define-method get_uri_icon
+-  (of-object "GdlIcons")
+-  (c-name "gdl_icons_get_uri_icon")
+-  (return-type "GdkPixbuf*")
+-  (parameters
+-    '("const-char*" "uri")
+-  )
+-)
+-
+-(define-method get_mime_icon
+-  (of-object "GdlIcons")
+-  (c-name "gdl_icons_get_mime_icon")
+-  (return-type "GdkPixbuf*")
+-  (parameters
+-    '("const-char*" "mime_type")
+-  )
+-)
+-
+-) ; ifdef HAVE_GDL_0_7
