@@ -6,16 +6,16 @@
 Summary:	GNOME bindings for Python
 Summary(pl.UTF-8):	Wiązania Pythona do bibliotek GNOME
 Name:		python-gnome-extras
-Version:	2.19.1
-Release:	18
+Version:	2.25.3
+Release:	1
 License:	GPL v2/LGPL v2.1 (see COPYING)
 Group:		Libraries/Python
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-python-extras/2.19/%{module}-%{version}.tar.bz2
-# Source0-md5:	08896c63d71ce44d20fafbaf9c0edc78
-Patch0:		%{name}-MOZILLA_HOME.patch
-Patch1:		%{name}-xulrunner.patch
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-python-extras/2.25/%{module}-%{version}.tar.bz2
+# Source0-md5:	9f3b7ec5c57130b96061cb486b79c076
+Patch0:		%{name}-xulrunner.patch
 # http://bugzilla.gnome.org/show_bug.cgi?id=553911
-Patch2:		%{name}-new-gdl.patch
+Patch1:		%{name}-new-gdl.patch
+Patch2:		%{name}-gtkdocdir.patch
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	gdl-devel >= 2.24.0
@@ -23,19 +23,18 @@ BuildRequires:	glib2-devel >= 1:2.6
 BuildRequires:	gnome-vfs2-devel >= 2.16.3
 BuildRequires:	gtk+2-devel >= 2:2.10.0
 BuildRequires:	gtkspell-devel >= 2.0.11
-BuildRequires:	hal-devel >= 0.5.7
-BuildRequires:	libgda3-devel >= 2.99.6
+BuildRequires:	libgda4-devel >= 3.99.11
 BuildRequires:	libgksu-devel >= 2.0.4
 BuildRequires:	libgksuui-devel >= 1.0.3
 BuildRequires:	libgnomeui-devel >= 2.16.1
 BuildRequires:	libgtkhtml-devel >= 2.3.1
-BuildRequires:	librsvg-devel >= 1:2.16.1
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
-BuildRequires:	popt-devel
 BuildRequires:	python-devel >= 1:2.3.2
 BuildRequires:	python-gnome-devel >= %{gnome_python_req}
 BuildRequires:	python-pygtk-devel >= %{pygtk_req}
+# for style.css
+BuildRequires:	python-pygobject-apidocs
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.234
 BuildRequires:	xulrunner-devel >= 1.9-5
@@ -92,7 +91,7 @@ Wiązania Pythona do egg.trayicon.
 Summary:	Libgda bindings for Python
 Summary(pl.UTF-8):	Wiązania Pythona do biblioteki libgda
 Group:		Libraries/Python
-Requires:	libgda >= 1:1.2.3
+Requires:	libgda4 >= 3.99.11
 Requires:	python-pygtk-gtk >= %{pygtk_req}
 
 %description gda
@@ -105,7 +104,7 @@ Wiązania Pythona do biblioteki libgda.
 Summary:	Header files for pygda library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki pygda
 Group:		Libraries/Python
-Requires:	libgda-devel >= 1:1.2.3
+Requires:	libgda4-devel >= 3.99.11
 Requires:	python-gnome-devel >= %{gnome_python_req}
 
 %description gda-devel
@@ -183,26 +182,25 @@ Wiązania Pythona do mozilli.
 %prep
 %setup -q -n %{module}-%{version}
 %patch0 -p1
-%patch1 -p1
-%patch2 -p0
+%patch1 -p0
+%patch2 -p1
 
 %build
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
 %{__automake}
-%configure
-%{__make} \
-	HTML_DIR=%{_gtkdocdir}
+%configure \
+	--enable-docs
+
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
-	HTML_DIR=%{_gtkdocdir}
+	DESTDIR=$RPM_BUILD_ROOT
 
 cp -a examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
@@ -237,9 +235,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %files gda-devel
 %defattr(644,root,root,755)
-%{_includedir}/pygda-3.0
+%{_includedir}/pygda-4.0
 %{_datadir}/pygtk/2.0/argtypes/gda-arg-types.py[co]
-%{_pkgconfigdir}/pygda-3.0.pc
+%{_pkgconfigdir}/pygda-4.0.pc
 
 %files gdl
 %defattr(644,root,root,755)
