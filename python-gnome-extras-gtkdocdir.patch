@@ -1,0 +1,40 @@
+diff -urN gnome-python-extras-2.25.3/docs/gtkmozembed/Makefile.am gnome-python-extras-2.25.3.new/docs/gtkmozembed/Makefile.am
+--- gnome-python-extras-2.25.3/docs/gtkmozembed/Makefile.am	2008-12-12 02:06:29.000000000 +0100
++++ gnome-python-extras-2.25.3.new/docs/gtkmozembed/Makefile.am	2009-04-26 01:29:18.644496232 +0200
+@@ -10,7 +10,7 @@
+ 	gtkmozembed-classes.xml		\
+ 	gtkmozembed-gtkmozembed.xml
+ 
+-HTMLdir = $(datadir)/gtk-doc/html/pygtkmozembed
++HTMLdir = $(datadir)/doc/gtk-doc/html/pygtkmozembed
+ HTML_DATA =					\
+ 	html/class-gtkmozembed.html		\
+ 	html/gtkmozembed-class-reference.html	\
+@@ -54,6 +54,6 @@
+                  --stringparam gtkdoc.bookname "pygtkmozembed" \
+                  --stringparam gtkdoc.version ${REF_VERSION} \
+                  $(HTML_STYLE) $(srcdir)/gtkmozembed/gtkmozembed-classes.xml
+-	$(PYGOBJECT_FIXXREF) -i /usr/share/gtk-doc/html/pygtk/ $(BUILDDIR)/html/
++	$(PYGOBJECT_FIXXREF) -i /usr/share/doc/gtk-doc/html/pygtk/ $(BUILDDIR)/html/
+ 	touch $@
+ endif
+diff -urN gnome-python-extras-2.25.3/docs/gtkspell/Makefile.am gnome-python-extras-2.25.3.new/docs/gtkspell/Makefile.am
+--- gnome-python-extras-2.25.3/docs/gtkspell/Makefile.am	2008-12-12 02:06:29.000000000 +0100
++++ gnome-python-extras-2.25.3.new/docs/gtkspell/Makefile.am	2009-04-26 01:29:34.300683489 +0200
+@@ -10,7 +10,7 @@
+ 	gtkspell-classes.xml	\
+ 	gtkspell-gtkspell.xml
+ 
+-HTMLdir = $(datadir)/gtk-doc/html/pygtkspell
++HTMLdir = $(datadir)/doc/gtk-doc/html/pygtkspell
+ HTML_DATA =					\
+ 	html/class-gtkspell.html		\
+ 	html/gtkspell-class-reference.html	\
+@@ -54,6 +54,6 @@
+                  --stringparam gtkdoc.bookname "pygtkspell" \
+                  --stringparam gtkdoc.version ${REF_VERSION} \
+                  $(HTML_STYLE) $(srcdir)/gtkspell/gtkspell-classes.xml
+-	$(PYGOBJECT_FIXXREF) -i /usr/share/gtk-doc/html/pygtk/ $(BUILDDIR)/html/
++	$(PYGOBJECT_FIXXREF) -i /usr/share/doc/gtk-doc/html/pygtk/ $(BUILDDIR)/html/
+ 	touch $@
+ endif
