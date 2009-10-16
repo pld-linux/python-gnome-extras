@@ -35,6 +35,7 @@ BuildRequires:	python-gnome-devel >= %{gnome_python_req}
 BuildRequires:	python-pygtk-devel >= %{pygtk_req}
 # for style.css
 BuildRequires:	python-pygobject-apidocs
+BuildRequires:	readline-devel
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.234
 BuildRequires:	xulrunner-devel >= 1.9-5
