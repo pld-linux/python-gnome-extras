@@ -1,82 +1,126 @@
-Index: configure.ac
-===================================================================
---- configure.ac	(revision 436)
-+++ configure.ac	(working copy)
-@@ -310,7 +310,7 @@
- AC_ARG_BINDING([gdl], [ON])
- if $build_gdl; then
-   have_gdl07=false
--  PKG_CHECK_MODULES(GDL, [gdl-1.0 >= 0.7.1 gdl-gnome-1.0 >= 0.7.1 pygtk-2.0 >= pygtk_required_version], dnl
-+  PKG_CHECK_MODULES(GDL, [gdl-1.0 >= 0.7.1 pygtk-2.0 >= pygtk_required_version], dnl
-                     [build_gdl=true; have_gdl07=true], build_gdl=false)
- 
-   dnl try again with no gnome and older version
-Index: gdl/gdl.defs
-===================================================================
---- gdl/gdl.defs	(revision 436)
-+++ gdl/gdl.defs	(working copy)
-@@ -81,17 +81,6 @@
-   (gtype-id "GDL_TYPE_DOCK_TABLABEL")
+diff -urN gnome-python-extras-2.25.3/gdl/gdl.defs gnome-python-extras-2.25.3.new/gdl/gdl.defs
+--- gnome-python-extras-2.25.3/gdl/gdl.defs	2008-12-12 02:06:29.000000000 +0100
++++ gnome-python-extras-2.25.3.new/gdl/gdl.defs	2009-10-17 00:53:33.091408039 +0200
+@@ -46,13 +46,6 @@
+   (gtype-id "GDL_TYPE_DOCK_ITEM")
  )
  
--(ifdef HAVE_GDL_0_7
--
--(define-object Icons
+-(define-object DockNotebook
 -  (in-module "Gdl")
--  (parent "GObject")
--  (c-name "GdlIcons")
--  (gtype-id "GDL_TYPE_ICONS")
+-  (parent "GdlDockItem")
+-  (c-name "GdlDockNotebook")
+-  (gtype-id "GDL_TYPE_DOCK_NOTEBOOK")
 -)
 -
--) ; ifdef HAVE_GDL_0_7
--
- ;; Enumerations and flags ...
- 
- (ifdef HAVE_GDL_0_7
-@@ -924,46 +913,3 @@
-   (return-type "none")
+ (define-object Dock
+   (in-module "Gdl")
+   (parent "GdlDockObject")
+@@ -60,13 +53,6 @@
+   (gtype-id "GDL_TYPE_DOCK")
  )
  
--;; From gdl-icons.h
--
--(ifdef HAVE_GDL_0_7
--
--(define-function gdl_icons_new
--  (is-constructor-of "GdlIcons")
--  (c-name "gdl_icons_new")
--  (return-type "GdlIcons*")
--  (parameters
--    '("int" "icon_size")
--  )
+-(define-object DockPaned
+-  (in-module "Gdl")
+-  (parent "GdlDockItem")
+-  (c-name "GdlDockPaned")
+-  (gtype-id "GDL_TYPE_DOCK_PANED")
 -)
 -
--(define-function gdl_icons_get_type
--  (c-name "gdl_icons_get_type")
+ (define-object DockPlaceholder
+   (in-module "Gdl")
+   (parent "GdlDockObject")
+@@ -74,13 +60,6 @@
+   (gtype-id "GDL_TYPE_DOCK_PLACEHOLDER")
+ )
+ 
+-(define-object DockTablabel
+-  (in-module "Gdl")
+-  (parent "GtkBin")
+-  (c-name "GdlDockTablabel")
+-  (gtype-id "GDL_TYPE_DOCK_TABLABEL")
+-)
+-
+ (ifdef HAVE_GDL_0_7
+ 
+ (define-object Icons
+@@ -682,21 +661,6 @@
+ 
+ 
+ 
+-;; From gdl-dock-notebook.h
+-
+-(define-function gdl_dock_notebook_new
+-  (c-name "gdl_dock_notebook_new")
+-  (is-constructor-of "GdlDockNotebook")
+-  (return-type "GtkWidget*")
+-)
+-
+-(define-function gdl_dock_notebook_get_type
+-  (c-name "gdl_dock_notebook_get_type")
 -  (return-type "GType")
 -)
 -
--(define-method get_folder_icon
--  (of-object "GdlIcons")
--  (c-name "gdl_icons_get_folder_icon")
--  (return-type "GdkPixbuf*")
+-
+-
+ ;; From gdl-dock-object.h
+ 
+ (define-function gdl_dock_object_get_type
+@@ -848,24 +812,6 @@
+ 
+ 
+ 
+-;; From gdl-dock-paned.h
+-
+-(define-function gdl_dock_paned_get_type
+-  (c-name "gdl_dock_paned_get_type")
+-  (return-type "GType")
 -)
 -
--(define-method get_uri_icon
--  (of-object "GdlIcons")
--  (c-name "gdl_icons_get_uri_icon")
--  (return-type "GdkPixbuf*")
--  (parameters
--    '("const-char*" "uri")
+-(define-function gdl_dock_paned_new
+-  (c-name "gdl_dock_paned_new")
+-  (is-constructor-of "GdlDockPaned")
+-  (return-type "GtkWidget*")
+-  (properties
+-    '("orientation")
 -  )
 -)
 -
--(define-method get_mime_icon
--  (of-object "GdlIcons")
--  (c-name "gdl_icons_get_mime_icon")
--  (return-type "GdkPixbuf*")
--  (parameters
--    '("const-char*" "mime_type")
+-
+-
+ ;; From gdl-dock-placeholder.h
+ 
+ (define-function gdl_dock_placeholder_get_type
+@@ -896,33 +842,6 @@
+ 
+ 
+ 
+-;; From gdl-dock-tablabel.h
+-
+-(define-function gdl_dock_tablabel_new
+-  (c-name "gdl_dock_tablabel_new")
+-  (is-constructor-of "GdlDockTablabel")
+-  (return-type "GtkWidget*")
+-  (properties
+-    '("item")
 -  )
 -)
 -
--) ; ifdef HAVE_GDL_0_7
+-(define-function gdl_dock_tablabel_get_type
+-  (c-name "gdl_dock_tablabel_get_type")
+-  (return-type "GType")
+-)
+-
+-(define-method activate
+-  (of-object "GdlDockTablabel")
+-  (c-name "gdl_dock_tablabel_activate")
+-  (return-type "none")
+-)
+-
+-(define-method deactivate
+-  (of-object "GdlDockTablabel")
+-  (c-name "gdl_dock_tablabel_deactivate")
+-  (return-type "none")
+-)
+ 
+ ;; From gdl-icons.h
+ 
