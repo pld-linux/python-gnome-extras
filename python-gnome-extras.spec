@@ -7,13 +7,13 @@ Summary:	GNOME bindings for Python
 Summary(pl.UTF-8):	Wiązania Pythona do bibliotek GNOME
 Name:		python-gnome-extras
 Version:	2.25.3
-Release:	6
+Release:	7
 License:	GPL v2/LGPL v2.1 (see COPYING)
 Group:		Libraries/Python
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-python-extras/2.25/%{module}-%{version}.tar.bz2
 # Source0-md5:	9f3b7ec5c57130b96061cb486b79c076
 Patch0:		%{name}-xulrunner.patch
-# http://bugzilla.gnome.org/show_bug.cgi?id=553911
+# http://bugzilla.gnome.org/show_bug.cgi?id=584126
 Patch1:		%{name}-new-gdl.patch
 Patch2:		%{name}-gtkdocdir.patch
 BuildRequires:	autoconf >= 2.52
@@ -183,7 +183,7 @@ Wiązania Pythona do mozilli.
 %prep
 %setup -q -n %{module}-%{version}
 %patch0 -p1
-%patch1 -p0
+%patch1 -p1
 %patch2 -p1
 
 %build
