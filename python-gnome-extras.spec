@@ -18,8 +18,11 @@ Patch1:		%{name}-new-gdl.patch
 Patch2:		%{name}-gtkdocdir.patch
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
+BuildRequires:	docbook-dtd412-xml
+BuildRequires:	docbook-style-xsl
 BuildRequires:	gdl-devel >= 2.24.0
 BuildRequires:	glib2-devel >= 1:2.6
+BuildRequires:	gnome-common
 BuildRequires:	gnome-vfs2-devel >= 2.16.3
 BuildRequires:	gtk+2-devel >= 2:2.10.0
 BuildRequires:	gtkspell-devel >= 2.0.11
@@ -29,6 +32,7 @@ BuildRequires:	libgksuui-devel >= 1.0.3
 BuildRequires:	libgnomeui-devel >= 2.16.1
 BuildRequires:	libgtkhtml-devel >= 2.3.1
 BuildRequires:	libtool
+BuildRequires:	libxslt-progs
 BuildRequires:	pkgconfig
 BuildRequires:	python-devel >= 1:2.3.2
 BuildRequires:	python-gnome-devel >= %{gnome_python_req}
