@@ -7,7 +7,7 @@ Summary:	GNOME bindings for Python
 Summary(pl.UTF-8):	Wiązania Pythona do bibliotek GNOME
 Name:		python-gnome-extras
 Version:	2.25.3
-Release:	11
+Release:	12
 License:	GPL v2/LGPL v2.1 (see COPYING)
 Group:		Libraries/Python
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-python-extras/2.25/%{module}-%{version}.tar.bz2
