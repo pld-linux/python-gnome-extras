@@ -124,3 +124,17 @@ diff -urN gnome-python-extras-2.25.3/gdl/gdl.defs gnome-python-extras-2.25.3.new
  
  ;; From gdl-icons.h
  
+--- gnome-python-extras-2.25.3/configure.ac~	2009-02-15 23:20:23.000000000 +0100
++++ gnome-python-extras-2.25.3/configure.ac	2011-05-07 18:28:09.283331969 +0200
+@@ -313,9 +313,9 @@
+   PKG_CHECK_MODULES(GDL, [gdl-1.0 >= 0.7.1 gdl-gnome-1.0 >= 0.7.1 pygtk-2.0 >= pygtk_required_version], dnl
+                     [build_gdl=true; have_gdl07=true], build_gdl=false)
+ 
+-  dnl try again with no gnome and older version
++  dnl try again with no gnome and newer version
+   if ! $build_gdl; then
+-    PKG_CHECK_MODULES(GDL, [gdl-1.0 >= 0.6.1 pygtk-2.0 >= pygtk_required_version], dnl
++    PKG_CHECK_MODULES(GDL, [gdl-3.0 >= 0.6.1 pygtk-2.0 >= pygtk_required_version], dnl
+                       build_gdl=true, build_gdl=false)
+   fi
+ fi
