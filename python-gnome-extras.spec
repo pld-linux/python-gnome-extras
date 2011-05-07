@@ -7,7 +7,7 @@ Summary:	GNOME bindings for Python
 Summary(pl.UTF-8):	Wiązania Pythona do bibliotek GNOME
 Name:		python-gnome-extras
 Version:	2.25.3
-Release:	28
+Release:	29
 License:	GPL v2/LGPL v2.1 (see COPYING)
 Group:		Libraries/Python
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-python-extras/2.25/%{module}-%{version}.tar.bz2
@@ -20,7 +20,7 @@ BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	docbook-style-xsl
-BuildRequires:	gdl-devel >= 2.24.0
+BuildRequires:	gdl-devel >= 3.0.0
 BuildRequires:	glib2-devel >= 1:2.6
 BuildRequires:	gnome-common
 BuildRequires:	gnome-vfs2-devel >= 2.16.3
@@ -209,8 +209,8 @@ install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 cp -a examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
-rm -f $RPM_BUILD_ROOT%{py_sitedir}/gtk-2.0/{*.la,*/*.la}
-%py_postclean /usr/share/pygtk/2.0
+%{__rm} $RPM_BUILD_ROOT%{py_sitedir}/gtk-2.0/{*.la,*/*.la}
+%py_postclean %{_datadir}/pygtk/2.0
 
 %clean
 rm -rf $RPM_BUILD_ROOT
