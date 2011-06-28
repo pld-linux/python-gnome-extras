@@ -7,15 +7,14 @@ Summary:	GNOME bindings for Python
 Summary(pl.UTF-8):	Wiązania Pythona do bibliotek GNOME
 Name:		python-gnome-extras
 Version:	2.25.3
-Release:	31
+Release:	32
 License:	GPL v2/LGPL v2.1 (see COPYING)
 Group:		Libraries/Python
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-python-extras/2.25/%{module}-%{version}.tar.bz2
 # Source0-md5:	9f3b7ec5c57130b96061cb486b79c076
-Patch0:		%{name}-xulrunner.patch
 # http://bugzilla.gnome.org/show_bug.cgi?id=584126
-Patch1:		%{name}-new-gdl.patch
-Patch2:		%{name}-gtkdocdir.patch
+Patch0:		%{name}-new-gdl.patch
+Patch1:		%{name}-gtkdocdir.patch
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	docbook-dtd412-xml
@@ -42,8 +41,8 @@ BuildRequires:	python-pygobject-apidocs
 BuildRequires:	readline-devel
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.234
-BuildRequires:	xulrunner-devel >= 1.9-5
 %pyrequires_eq	python-modules
+Obsoletes:	python-gnome-extras-mozilla
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define pydefsdir %(pkg-config --variable=defsdir pygtk-2.0)
@@ -171,24 +170,10 @@ Libgksu and libgksuui bindings for Python.
 %description libgksu -l pl.UTF-8
 Wiązania Pythona do bibliotek libgksu i libgksuui.
 
-%package mozilla
-Summary:	Mozilla bindings for Python
-Summary(pl.UTF-8):	Wiązania Pythona do mozilli
-Group:		Libraries/Python
-Requires:	python-pygtk-gtk >= %{pygtk_req}
-%requires_eq	xulrunner-libs
-
-%description mozilla
-Mozilla bindings for Python.
-
-%description mozilla -l pl.UTF-8
-Wiązania Pythona do mozilli.
-
 %prep
 %setup -q -n %{module}-%{version}
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
 
 %build
 %{__libtoolize}
@@ -196,7 +181,8 @@ Wiązania Pythona do mozilli.
 %{__autoconf}
 %{__automake}
 %configure \
-	--enable-docs
+	--enable-docs \
+	--disable-gtkmozembed
 
 %{__make}
 
@@ -262,8 +248,3 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{py_sitedir}/gtk-2.0/gksu2
 %{py_sitedir}/gtk-2.0/gksu2/__init__.py[co]
 %attr(755,root,root) %{py_sitedir}/gtk-2.0/gksu2/_gksu2.so
-
-%files mozilla
-%defattr(644,root,root,755)
-%attr(755,root,root) %{py_sitedir}/gtk-2.0/gtkmozembed.so
-%{_gtkdocdir}/pygtkmozembed
