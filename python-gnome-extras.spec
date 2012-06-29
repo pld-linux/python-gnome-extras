@@ -7,7 +7,7 @@ Summary:	GNOME bindings for Python
 Summary(pl.UTF-8):	Wiązania Pythona do bibliotek GNOME
 Name:		python-gnome-extras
 Version:	2.25.3
-Release:	32
+Release:	33
 License:	GPL v2/LGPL v2.1 (see COPYING)
 Group:		Libraries/Python
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-python-extras/2.25/%{module}-%{version}.tar.bz2
@@ -26,8 +26,6 @@ BuildRequires:	gnome-vfs2-devel >= 2.16.3
 BuildRequires:	gtk+2-devel >= 2:2.10.0
 BuildRequires:	gtkspell-devel >= 2.0.11
 BuildRequires:	libgda4-devel >= 3.99.11
-BuildRequires:	libgksu-devel >= 2.0.4
-BuildRequires:	libgksuui-devel >= 1.0.3
 BuildRequires:	libgnomeui-devel >= 2.16.1
 BuildRequires:	libgtkhtml-devel >= 2.3.1
 BuildRequires:	libtool
@@ -42,6 +40,7 @@ BuildRequires:	readline-devel
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.234
 %pyrequires_eq	python-modules
+Obsoletes:	python-gnome-extras-libgksu < 2.25.3-33
 Obsoletes:	python-gnome-extras-mozilla
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -157,19 +156,6 @@ Gtkspell bindings for Python.
 %description gtkspell -l pl.UTF-8
 Wiązania Pythona do biblioteki gtkspell.
 
-%package libgksu
-Summary:	Libgksu and libgksuui bindings for Python
-Summary(pl.UTF-8):	Wiązania Pythona do bibliotek libgksu i libgksuui
-Group:		Libraries/Python
-Requires:	libgksuui >= 1.0.7-3
-Requires:	python-pygtk-gtk >= %{pygtk_req}
-
-%description libgksu
-Libgksu and libgksuui bindings for Python.
-
-%description libgksu -l pl.UTF-8
-Wiązania Pythona do bibliotek libgksu i libgksuui.
-
 %prep
 %setup -q -n %{module}-%{version}
 %patch0 -p1
@@ -242,9 +228,3 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{py_sitedir}/gtk-2.0/gtkspell.so
 %{_gtkdocdir}/pygtkspell
-
-%files libgksu
-%defattr(644,root,root,755)
-%dir %{py_sitedir}/gtk-2.0/gksu2
-%{py_sitedir}/gtk-2.0/gksu2/__init__.py[co]
-%attr(755,root,root) %{py_sitedir}/gtk-2.0/gksu2/_gksu2.so
