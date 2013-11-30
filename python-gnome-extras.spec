@@ -1,4 +1,7 @@
 #
+# Conditional build:
+%bcond_with	gda4			# build gda module / gda4 support
+#
 %define		module			gnome-python-extras
 %define		pygtk_req		2:2.10.4
 %define		gnome_python_req	2.16.2
@@ -7,7 +10,7 @@ Summary:	GNOME bindings for Python
 Summary(pl.UTF-8):	Wiązania Pythona do bibliotek GNOME
 Name:		python-gnome-extras
 Version:	2.25.3
-Release:	34
+Release:	35
 License:	GPL v2/LGPL v2.1 (see COPYING)
 Group:		Libraries/Python
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-python-extras/2.25/%{module}-%{version}.tar.bz2
@@ -25,7 +28,7 @@ BuildRequires:	gnome-common
 BuildRequires:	gnome-vfs2-devel >= 2.16.3
 BuildRequires:	gtk+2-devel >= 2:2.10.0
 BuildRequires:	gtkspell-devel >= 2.0.11
-BuildRequires:	libgda4-devel >= 3.99.11
+%{?with_gda4:BuildRequires:	libgda4-devel >= 3.99.11}
 BuildRequires:	libgnomeui-devel >= 2.16.1
 BuildRequires:	libgtkhtml-devel >= 2.3.1
 BuildRequires:	libtool
@@ -206,6 +209,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{py_sitedir}/gtk-2.0/egg/*.so
 %{py_sitedir}/gtk-2.0/egg/__init__.py[co]
 
+%if %{with gda4}
 %files gda
 %defattr(644,root,root,755)
 %attr(755,root,root) %{py_sitedir}/gtk-2.0/gda.so
@@ -215,6 +219,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/pygda-4.0
 %{_datadir}/pygtk/2.0/argtypes/gda-arg-types.py[co]
 %{_pkgconfigdir}/pygda-4.0.pc
+%endif
 
 %files gdl
 %defattr(644,root,root,755)
