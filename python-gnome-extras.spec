@@ -165,8 +165,8 @@ Wiązania Pythona do biblioteki gtkspell.
 
 %prep
 %setup -q -n %{module}-%{version}
-%patch0 -p1
-%patch1 -p1
+%patch -P0 -p1
+%patch -P1 -p1
 
 %{__sed} -i -e '1s,/usr/bin/python$,%{__python},' examples/egg/trayicon.py
 
